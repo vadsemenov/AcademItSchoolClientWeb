@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Первая страница</title>
+</head>
+<body>
+    <form action="action.php" method="post">
+        <p>
+            <label>
+                Имя:
+            </label>
+            <input type="text" name="firstName" maxlength="25" size="40" value="Иван" />
+        </p>
+        <p>
+            <label>
+                Фамилия:
+            </label>
+            <input type="text" name="secondName" maxlength="25" size="40" value="Иванов" />
+
+        </p>
+        <p><textarea name="textArea" maxlength="25" rows="3" size="40"></textarea></p>
+        <p>
+            <label>
+                <input type="checkbox" name="MyCheck" value="1" checked="checked" />1
+            </label>
+            <label>
+                <input type="checkbox" name="MyCheck" value="2" />2
+            </label>
+            <label>
+                <input type="checkbox" name="MyCheck" value="3" />3
+            </label>
+        </p>
+        <p>
+            <label>Пол:</label>
+            <label>
+                <input type="radio" name="MyRadio" value="1" checked="checked" />М
+            </label>
+            <label>
+                <input type="radio" name="MyRadio" value="2" />Ж
+            </label>
+        </p>
+        <p>
+            <label>Образование:</label>
+            <select name="education1" multiple="multiple" size="3">
+                <option selected="selected" value="1">Начальное</option>
+                <option value="2">Среднее</option>
+                <option value="3">Высшее</option>
+            </select>
+            <select name="education2">
+                <option value="1">Начальное</option>
+                <option value="2">Среднее</option>
+                <option selected="selected" value="3">Высшее</option>
+            </select>
+        </p>
+        <p><button type="submit">Отправить</button></p>
+    </form>
+    <br>
+    <hr />
+    <a href="secondPage.html">Перейти на вторую страницу</a>
+</body>
+</html>
