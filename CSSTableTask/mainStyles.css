@@ -1,18 +1,50 @@
-﻿.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+﻿﻿ * {
+    box-sizing: border-box;
 }
 
-table.MyTable {
+.body {
+    font-size: 22px;
+}
+
+.FlexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.MyTable {
+    width: 500px;
+    border-collapse: collapse;
     background: #FFF;
 }
 
-    table.MyTable thead {
+
+    .MyTable thead {
         color: #FFF;
         background: #3498DB;
     }
 
-    table.MyTable tbody tr:nth-child(odd) {
+    .MyTable th td {
+        border: 1px solid #CECECE;
+    }
+
+    .MyTable tbody tr:nth-child(odd) {
         background: #EEE;
     }
+
+.ColumnFirstName {
+    width: 175px;
+}
+
+.ColumnSecondName {
+    width: 175px;
+}
+
+.ColumnJobTitle {
+    width: 310px;
+}
+
+.ColumnTwitter {
+    width: 200px;
+}
