@@ -1,7 +1,18 @@
-﻿table.MyTable {
-    background-color: lightblue;
+﻿.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-table.MyTable tbody tr:nth-child(odd) {
-    background: #EEE;
+table.MyTable {
+    background: #FFF;
 }
+
+    table.MyTable thead {
+        color: #FFF;
+        background: #3498DB;
+    }
+
+    table.MyTable tbody tr:nth-child(odd) {
+        background: #EEE;
+    }
