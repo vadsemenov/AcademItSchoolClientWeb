@@ -1,0 +1,7 @@
+﻿table.MyTable {
+    background-color: lightblue;
+}
+
+table.MyTable tbody tr:nth-child(odd) {
+    background: #EEE;
+}
