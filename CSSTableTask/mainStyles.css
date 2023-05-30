@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-.body {
-    font-size: 22px;
-}
-
 .FlexContainer {
     display: flex;
     justify-content: center;
@@ -14,18 +10,22 @@
 }
 
 .MyTable {
-    width: 500px;
+    font-size: 22px;
+    font-family: "Calibri", monospace;
+    width: 860px;
+    height: 312px;
     border-collapse: collapse;
     background: #FFF;
 }
 
-
     .MyTable thead {
+        text-align: left;
         color: #FFF;
         background: #3498DB;
     }
 
-    .MyTable th td {
+    .MyTable th, td {
+        padding: 14px 10px 10px;
         border: 1px solid #CECECE;
     }
 
