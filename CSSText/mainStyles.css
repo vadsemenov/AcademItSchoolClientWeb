@@ -1,0 +1,51 @@
+﻿﻿ * {
+    box-sizing: border-box;
+}
+
+.FlexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.TextBlock {
+    width: 850px;
+    height: 462px;
+    border-collapse: collapse;
+    background-color: #feeed6;
+    font-size: 17.8px;
+    font-family: "Arial", sans-serif;
+    color: #676576;
+    overflow: auto;
+}
+
+.TitleText {
+    font-size: 32px;
+    margin: 10px 10px;
+}
+
+.ParametersBlock {
+    margin: 16px 0 16px;
+}
+
+.ParameterBlock {
+    margin: 10px 0 10px;
+}
+
+.ParameterHeader {
+    color: #378DB2;
+    font-weight: bold;
+    margin: 10px 0 10px 10px;
+}
+
+.ParameterStrikeThroughText {
+    text-decoration: line-through;
+}
+
+.MainText {
+    margin: 10px 10px 5px 10px;
+    line-height: 25px;
+    text-indent: 20px;
+}
