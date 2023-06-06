@@ -1,18 +1,15 @@
-﻿﻿ * {
+﻿* {
     box-sizing: border-box;
 }
 
-.FlexContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fff;
+html {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
 }
 
 .FormWithTitle {
-    font-family: "Arial", sans-serif;
-    font-size: 16px;
+    margin: auto;
+    max-width: 840px;
     color: #676576;
 }
 
@@ -22,13 +19,11 @@
 }
 
 .Form {
-    box-sizing: border-box;
-    width: 840px;
-    height: 530px;
+    width: 100%;
+    min-height: 530px;
+    position: relative;
     background-color: #feeed6;
-    padding: 10px 20px 20px 20px;
-    /* max-width: 840px; */
-    /* min-width: 462px; */
+    padding: 0 20px 20px 15px;
 }
 
     .Form input {
@@ -38,6 +33,7 @@
         font-family: "Arial", sans-serif;
         font-size: 16px;
         text-indent: 10px;
+        padding: 0;
     }
 
     .Form textarea {
@@ -46,15 +42,15 @@
         font-family: "Arial", sans-serif;
         font-size: 16px;
         text-indent: 10px;
-        /* margin: 7px 0 19px; */
-        padding: 10px 0 0 0; 
+        padding: 10px 0 0 0;
         border-style: none;
+        resize: vertical;
     }
 
     .Form button {
-        display: block;
-        margin-top: auto;
-        margin-left: auto;
+        position: absolute;
+        right: 20px;
+        bottom: 15px;
         width: 170px;
         height: 40px;
         color: #fff;
@@ -65,7 +61,19 @@
         border-style: none;
     }
 
+    .Form button:hover {
+        background-color: greenyellow; 
+    }
+
 .TitleText {
     font-weight: bold;
     margin: 10px 0 10px 0;
+}
+
+.DescriptionText {
+    margin: 10px 0 10px 0;
+}
+
+.ContentBlock {
+    padding: 10px 0 0 0;
 }

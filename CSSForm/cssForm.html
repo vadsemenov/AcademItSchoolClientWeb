@@ -2,32 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1">
     <title>CSS Form</title>
-    <link href="reset.css" rel="stylesheet" />
-    <link href="mainStyles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="mainStyles.css" />
 </head>
 <body>
-    <div class="FlexContainer">
-        <div class="FormWithTitle">
-            <h1 class="MainTitleText">Отправь заявку</h1>
-            <form class="Form" action="action.php" method="post">
+    <div class="FormWithTitle">
+        <h1 class="MainTitleText">Отправь заявку</h1>
+        <form class="Form" action="action.php" method="post">
+            <div class="ContentBlock">
                 <div class="TitleText">Ваше имя</div>
                 <input name="Name" placeholder="Ваше имя *" />
-
+            </div>
+            <div class="ContentBlock">
                 <div class="TitleText">Ваш номер телефона</div>
                 <input name="Telephone" placeholder="Ваш номер телефона *" />
-
+            </div>
+            <div class="ContentBlock">
                 <div class="TitleText">Ваш email или VK</div>
                 <input name="EmailVK" placeholder="Ваш email или VK" />
-
+            </div>
+            <div class="ContentBlock">
                 <div class="TitleText">Комментарий</div>
                 <textarea name="Comment" placeholder="Комментарий (не обязательно)"></textarea>
-
-                <div>Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</div>
-
-                <button type="submit">Отправить заявку</button>
-            </form>
-        </div>
+            </div>
+            <div class="ContentBlock">
+                <div class="DescriptionText">Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</div>
+            </div>
+            <button type="submit">Отправить заявку</button>
+        </form>
     </div>
 </body>
 </html>
