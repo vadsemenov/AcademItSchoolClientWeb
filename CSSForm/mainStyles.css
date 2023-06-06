@@ -1,0 +1,73 @@
+﻿﻿ * {
+    box-sizing: border-box;
+}
+
+.FlexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.FormWithTitle {
+    border-collapse: collapse;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #676576;
+}
+
+.MainTitleText {
+    font-size: 32px;
+    margin: 10px 10px;
+}
+
+.Form {
+    display: block;
+    width: 840px;
+    height: 462px;
+    border-collapse: collapse;
+    background-color: #feeed6;
+    padding: 10px 20px 20px 20px;
+    /* max-width: 840px; */
+    /* min-width: 462px; */
+}
+
+    .Form input {
+        width: 100%;
+        height: 40px;
+        border-style: none;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        text-indent: 10px;
+    }
+
+    .Form textarea {
+        width: 100%;
+        height: 130px;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        text-indent: 10px;
+        /* margin: 7px 0 19px; */
+        padding: 10px 0 0 0; 
+        border-style: none;
+    }
+
+    .Form button {
+        display: block;
+        margin-top: auto;
+        margin-left: auto;
+        width: 170px;
+        height: 40px;
+        color: #fff;
+        background-color: #378db2;
+        font-weight: bold;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        border: none;
+    }
+
+.TitleText {
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
