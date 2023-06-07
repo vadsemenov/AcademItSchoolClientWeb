@@ -1,16 +1,16 @@
-﻿﻿ * {
+﻿* {
     box-sizing: border-box;
 }
 
-.FlexContainer {
+.flex_container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.MyTable {
-    font-size: 22px;
+.main_table {
+    font-size: 24px;
     font-family: "Calibri", monospace;
     width: 860px;
     height: 312px;
@@ -18,33 +18,34 @@
     background: #FFF;
 }
 
-    .MyTable thead {
+    .main_table thead {
         text-align: left;
         color: #FFF;
         background: #3498DB;
     }
 
-    .MyTable th, td {
+    .main_table th,
+    .main_table td {
         padding: 14px 10px 10px;
         border: 1px solid #CECECE;
     }
 
-    .MyTable tbody tr:nth-child(odd) {
+    .main_table tbody tr:nth-child(odd) {
         background: #EEE;
     }
 
-.ColumnFirstName {
+.column_first_name {
     width: 175px;
 }
 
-.ColumnSecondName {
+.column_second_name {
     width: 175px;
 }
 
-.ColumnJobTitle {
+.column_job_title {
     width: 310px;
 }
 
-.ColumnTwitter {
+.column_twitter {
     width: 200px;
 }
