@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSTableTask", "CSSTableTas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSTextTask", "CSSText\CSSTextTask.csproj", "{91D2D44F-9EFB-4F3A-AE3B-BC2596F2309A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSSForm", "CSSForm\CSSForm.csproj", "{45B999A5-4CEE-48B5-81E9-32D640751C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSForm", "CSSForm\CSSForm.csproj", "{45B999A5-4CEE-48B5-81E9-32D640751C8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSWorkWithArrays", "JSWorkWithArrays\JSWorkWithArrays.csproj", "{6C2D641D-BF48-47C8-BB97-02D2294B2514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSWorkWithObjects", "JSWorkWithObjects\JSWorkWithObjects.csproj", "{599996B1-769D-4879-9312-56758BECB605}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{45B999A5-4CEE-48B5-81E9-32D640751C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45B999A5-4CEE-48B5-81E9-32D640751C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45B999A5-4CEE-48B5-81E9-32D640751C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2D641D-BF48-47C8-BB97-02D2294B2514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2D641D-BF48-47C8-BB97-02D2294B2514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2D641D-BF48-47C8-BB97-02D2294B2514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2D641D-BF48-47C8-BB97-02D2294B2514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599996B1-769D-4879-9312-56758BECB605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599996B1-769D-4879-9312-56758BECB605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599996B1-769D-4879-9312-56758BECB605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599996B1-769D-4879-9312-56758BECB605}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
