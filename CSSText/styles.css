@@ -10,42 +10,43 @@
     background-color: #fff;
 }
 
-.TextBlock {
+.text_block {
     width: 850px;
-    height: 462px;
+    min-height: 462px;
     border-collapse: collapse;
     background-color: #feeed6;
-    font-size: 17.8px;
+    font-size: 18px;
     font-family: "Arial", sans-serif;
     color: #676576;
-    overflow: auto;
 }
 
-.TitleText {
+.title_text {
     font-size: 32px;
     margin: 10px 10px;
 }
 
-.ParametersBlock {
+.parameters_block {
     margin: 16px 0 16px;
 }
 
-.ParameterBlock {
+.parameter_block {
     margin: 10px 0 10px;
 }
 
-.ParameterHeader {
+.parameter_header {
     color: #378DB2;
     font-weight: bold;
     margin: 10px 0 10px 10px;
 }
 
-.ParameterStrikeThroughText {
+.parameter_strike_through_text {
     text-decoration: line-through;
 }
 
-.MainText {
+.main_text {
     margin: 10px 10px 5px 10px;
+    text-align: justify;
+    font-size: 98%;
     line-height: 25px;
     text-indent: 20px;
 }
