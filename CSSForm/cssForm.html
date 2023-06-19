@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width; initial-scale=1">
     <title>CSS Form</title>
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="mainStyles.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="FormWithTitle">
-        <h1 class="MainTitleText">Отправь заявку</h1>
-        <form class="Form" action="action.php" method="post">
-            <div class="ContentBlock">
+    <div class="form_with_title">
+        <h1 class="main_title_text">Отправь заявку</h1>
+        <form class="form" action="action.php" method="post">
+            <div class="content_block">
                 <div class="title_text">Ваше имя</div>
                 <input name="Name" placeholder="Ваше имя *" />
             </div>
-            <div class="ContentBlock">
+            <div class="content_block">
                 <div class="title_text">Ваш номер телефона</div>
                 <input name="Telephone" placeholder="Ваш номер телефона *" />
             </div>
-            <div class="ContentBlock">
+            <div class="content_block">
                 <div class="title_text">Ваш email или VK</div>
                 <input name="EmailVK" placeholder="Ваш email или VK" />
             </div>
-            <div class="ContentBlock">
+            <div class="content_block">
                 <div class="title_text">Комментарий</div>
                 <textarea name="Comment" placeholder="Комментарий (не обязательно)"></textarea>
             </div>
-            <div class="ContentBlock">
-                <div class="DescriptionText">Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</div>
+            <div class="content_block">
+                <div class="description_text">Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</div>
             </div>
             <button type="submit">Отправить заявку</button>
         </form>

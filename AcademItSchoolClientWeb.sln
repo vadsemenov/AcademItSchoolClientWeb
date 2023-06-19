@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSTextTask", "CSSText\CSST
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSSForm", "CSSForm\CSSForm.csproj", "{45B999A5-4CEE-48B5-81E9-32D640751C8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSWorkWithArrays", "JSWorkWithArrays\JSWorkWithArrays.csproj", "{6C2D641D-BF48-47C8-BB97-02D2294B2514}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSWorkWithArrays", "JSWorkWithArrays\JSWorkWithArrays.csproj", "{6C2D641D-BF48-47C8-BB97-02D2294B2514}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSWorkWithObjects", "JSWorkWithObjects\JSWorkWithObjects.csproj", "{599996B1-769D-4879-9312-56758BECB605}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSWorkWithObjects", "JSWorkWithObjects\JSWorkWithObjects.csproj", "{599996B1-769D-4879-9312-56758BECB605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSTemperatureConverter", "JSTemperatureConverter\JSTemperatureConverter.csproj", "{C4946C9A-ACD2-4711-8829-F57CBE65CD97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSTodoList", "JSTodoList\JSTodoList.csproj", "{7E72B1BF-921A-415E-BD63-7D51A15E8F99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{599996B1-769D-4879-9312-56758BECB605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{599996B1-769D-4879-9312-56758BECB605}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{599996B1-769D-4879-9312-56758BECB605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4946C9A-ACD2-4711-8829-F57CBE65CD97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4946C9A-ACD2-4711-8829-F57CBE65CD97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4946C9A-ACD2-4711-8829-F57CBE65CD97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4946C9A-ACD2-4711-8829-F57CBE65CD97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E72B1BF-921A-415E-BD63-7D51A15E8F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E72B1BF-921A-415E-BD63-7D51A15E8F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E72B1BF-921A-415E-BD63-7D51A15E8F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E72B1BF-921A-415E-BD63-7D51A15E8F99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
