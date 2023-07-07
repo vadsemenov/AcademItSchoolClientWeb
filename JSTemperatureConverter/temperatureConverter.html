@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Temperature converter </title>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -12,17 +12,18 @@
     <div class="form_with_title">
         <div class="main_title_text"><h1>Конвертер температур</h1></div>
         <div class="form">
-            <input id="celsium_temperature" type="text" placeholder="Температура в градусах цельсия" />
+            <input id="celsius_temperature" type="text" placeholder="Температура в градусах цельсия" />
+            <div class="error_message">Строка не должна быть пустой и должна содержать число!</div>
             <div class="content_block">
-                <button type="button">Конвертировать</button>
+                <button id="convert_button" type="button">Конвертировать</button>
             </div>
             <div class="content_block">
                 <div class="title_text">Температура по шкале Кельвина:</div>
-                <input id="kelvin_temperature" placeholder="Температура по шкале Кельвина" disabled/>
+                <input id="kelvin_temperature" placeholder="Температура по шкале Кельвина" disabled />
             </div>
             <div class="content_block">
                 <div class="title_text">Температура по шкале Фаренгейта:</div>
-                <input id="fahrenheit_temperature" placeholder="Температура по шкале Фаренгейта" disabled/>
+                <input id="fahrenheit_temperature" placeholder="Температура по шкале Фаренгейта" disabled />
             </div>
         </div>
     </div>
