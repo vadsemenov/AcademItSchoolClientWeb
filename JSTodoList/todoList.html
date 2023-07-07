@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TODO List </title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="form_with_title">
+        <div class="main_title_text"><h1>ToDo List</h1></div>
+        <form id="todo-form" class="form">
+            <div class="content_block">
+                <div class="title_text">Введите текст:</div>
+                <input id="new-todo-text" type="text" placeholder="Текст" />
+                <div class="error_message">Строка не должна быть пустой!</div>
+                <button id="add-button" class="big_button" type="submit">Добавить</button>
+            </div>
+            <ul id="todo-list"></ul>
+        </form>
+    </div>
+</body>
+</html>
