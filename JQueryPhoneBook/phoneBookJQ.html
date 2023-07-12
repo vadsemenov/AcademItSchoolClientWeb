@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JQuery Phone book </title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="jquery-3.7.0.js"></script>
+    <script defer src="jquery-ui-1.13.2/jquery-ui.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="form_with_title">
+        <div class="main_title_text"><h1>JQuery phone book</h1></div>
+        <!-- <form id="todo-form" class="form"> -->
+        <!--     <div class="content_block"> -->
+        <!--         <div class="title_text">Введите текст:</div> -->
+        <!--         <input id="new-todo-text" type="text" placeholder="Текст" /> -->
+        <!--         <div class="error_message">Строка не должна быть пустой!</div> -->
+        <!--         <button id="add-button" class="big_button" type="submit">Добавить</button> -->
+        <!--     </div> -->
+        <!--     <ul id="todo-list"></ul> -->
+        <!-- </form> -->
+
+        <form id="add_form" class="form">
+            <div class="content_block">
+                <div class="title_text">Last name:</div>
+                <input id="last_name_add_input" type="text" placeholder="Last name" />
+
+                <div class="title_text">First name:</div>
+                <input id="first_name_add_input" type="text" placeholder="First name" />
+
+                <div class="title_text">Phone number:</div>
+                <input id="phone_add_input" type="text" placeholder="Phone number" />
+
+                <button id="add-button" class="big_button" type="submit">Add contact</button>
+
+                <div id="error_message" class="error_message">Field is not valid</div>
+            </div>
+        </form>
+        <form id="contacts_form" class="form">
+            <div class="content_block">
+                <table id="contacts_table" class="main_table">
+                    <thead>
+                        <tr>
+                            <th class="column_second_name">Last Name</th>
+                            <th class="column_first_name">First Name</th>
+                            <th class="column_phone">Phone number</th>
+                            <th class="column_delete_button"></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </form>
+
+        <button id="delete_button" type="button">Удалить</button>
+
+        <!-- <div id="dialog_confirm" class="dialog" title="Delete this phone number?"> -->
+        <!--     <div class="contact_information_row"> -->
+        <!--         <div>Last name: </div> -->
+        <!--         <div class="last_name"></div> -->
+        <!--     </div> -->
+        <!--     <div class="contact_information_row"> -->
+        <!--         <div>First name: </div> -->
+        <!--         <div class="first_name"></div> -->
+        <!--     </div> -->
+        <!--     <div class="contact_information_row"> -->
+        <!--         <div>Phone number: </div> -->
+        <!--         <div class="phone_number"></div> -->
+        <!--     </div> -->
+        <!-- </div> -->
+
+        <div id="dialog_confirm" title="Delete this contact?">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These contact will be permanently deleted and cannot be recovered. Are you sure?</p>
+        </div>
+    </div>
+</body>
+</html>

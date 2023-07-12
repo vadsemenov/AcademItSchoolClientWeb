@@ -1,0 +1,162 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+}
+
+.form_with_title {
+    margin: auto;
+    max-width: 500px;
+    color: #676576;
+}
+
+.main_title_text {
+    font-size: 32px;
+    margin: 10px 10px;
+    text-align: center
+}
+
+.form {
+    width: 100%;
+    /* min-height: 300px; */
+    background-color: #feeed6;
+    padding: 20px 20px 20px 20px;
+    border: 5px solid #676576
+}
+
+    .form ul {
+        text-align: left;
+        padding: 20px 20px 20px 20px;
+    }
+
+    .form li {
+        list-style-type: circle;
+        padding: 5px 0;
+    }
+
+    .form input {
+        width: 100%;
+        height: 40px;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        text-indent: 10px;
+        padding: 0;
+        margin: 10px;
+    }
+
+        .form input:disabled {
+            background-color: #cccccc
+        }
+
+    .form button.small_button {
+        right: 20px;
+        bottom: 15px;
+        width: 100px;
+        height: 30px;
+        color: #fff;
+        background-color: #378db2;
+        font-weight: bold;
+        font-family: "Arial", sans-serif;
+        font-size: 12px;
+        border-style: none;
+        padding: 0 10px;
+    }
+
+    .form button.big_button {
+        right: 20px;
+        bottom: 15px;
+        width: 170px;
+        height: 40px;
+        color: #fff;
+        background-color: #378db2;
+        font-weight: bold;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        border-style: none;
+    }
+
+    .form button:hover {
+        background-color: #80adc0;
+        cursor: pointer;
+    }
+
+.title_text {
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
+
+.description_text {
+    margin: 10px 0 10px 0;
+}
+
+.error_message {
+    padding: 0 0 10px 0;
+    text-align: center;
+    color: #f00;
+    display: none;
+}
+
+.note_error_message {
+    padding: 0 0 10px 0;
+    color: #f00;
+    display: none;
+}
+
+.invalid {
+    border-color: #f00;
+}
+
+    .invalid ~ .error_message {
+        display: block;
+    }
+
+.content_block {
+    text-align: center;
+    padding: 10px 0 0 0;
+    width: 100%;
+}
+
+.dialog {
+    display: none;
+}
+
+.main_table {
+    /* font-size: 24px; */
+    font-family: "Calibri", monospace;
+    border-collapse: collapse;
+    background: #FFF;
+}
+
+.main_table thead {
+    text-align: left;
+    color: #FFF;
+    background: #3498DB;
+}
+
+.main_table th,
+.main_table td {
+    padding: 14px 10px 10px;
+    border: 1px solid #CECECE;
+}
+
+.main_table tbody tr:nth-child(odd) {
+    background: #EEE;
+}
+
+.column_first_name {
+    width: 175px;
+}
+
+.column_second_name {
+    width: 175px;
+}
+
+.column_phone {
+    width: 250px;
+}
+.column_delete_button {
+    width: 50px;
+}
