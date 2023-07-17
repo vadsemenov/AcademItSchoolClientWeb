@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSTemperatureConverter", "J
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSTodoList", "JSTodoList\JSTodoList.csproj", "{7E72B1BF-921A-415E-BD63-7D51A15E8F99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JQueryTodoList", "JQueryTodoList\JQueryTodoList.csproj", "{8654438F-5EC1-469C-BF70-81401DA9CBDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JQueryTodoList", "JQueryTodoList\JQueryTodoList.csproj", "{8654438F-5EC1-469C-BF70-81401DA9CBDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JQueryPhoneBook", "JQueryPhoneBook\JQueryPhoneBook.csproj", "{009669E8-0D9E-4DCC-87E1-88C8D26E99DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JQueryPhoneBook", "JQueryPhoneBook\JQueryPhoneBook.csproj", "{009669E8-0D9E-4DCC-87E1-88C8D26E99DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Underscore", "Underscore\Underscore.csproj", "{BAD967B3-3EBC-4CD4-B9DE-D18EC4E0377B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{009669E8-0D9E-4DCC-87E1-88C8D26E99DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{009669E8-0D9E-4DCC-87E1-88C8D26E99DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{009669E8-0D9E-4DCC-87E1-88C8D26E99DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD967B3-3EBC-4CD4-B9DE-D18EC4E0377B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD967B3-3EBC-4CD4-B9DE-D18EC4E0377B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD967B3-3EBC-4CD4-B9DE-D18EC4E0377B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD967B3-3EBC-4CD4-B9DE-D18EC4E0377B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
