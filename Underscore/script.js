@@ -13,7 +13,7 @@
         { name: "Svetlana", age: 35 }
     ];
 
-    console.log("Средний возраст людей:")
+    console.log("Средний возраст людей:");
     console.log(GetAverageAge(people));
     console.log("----------------------");
 
