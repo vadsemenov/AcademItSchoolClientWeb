@@ -28,7 +28,6 @@
     console.log("Новый объект: имя - колличество людей с таким именем:");
     console.log(GetNewObjectWithNamesAndCount(people));
 
-
     //Посчитать средний возраст всех людей
     function GetAverageAge(people) {
         var ages = _.pluck(people, "age");
@@ -79,7 +78,6 @@
 
         return orderedPeople;
     }
-
 
     //Получить объект, в котором ключами будут имена
     //людей, а значениями – количество людей с этим
