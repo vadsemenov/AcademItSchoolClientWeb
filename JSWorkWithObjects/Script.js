@@ -44,6 +44,7 @@ function getCountriesPopulation(countriesArray) {
             const cityPopulation = city.population;
 
             populationSum += cityPopulation;
+
             return populationSum;
         }, 0);
     });
