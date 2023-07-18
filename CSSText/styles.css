@@ -11,32 +11,30 @@
 }
 
 .text_block {
-    width: 850px;
-    min-height: 462px;
+    width: 830px;
     border-collapse: collapse;
     background-color: #feeed6;
     font-size: 18px;
     font-family: "Arial", sans-serif;
     color: #676576;
+    padding: 10px 10px 0 10px;
 }
 
 .title_text {
     font-size: 32px;
-    margin: 10px 10px;
 }
 
 .parameters_block {
-    margin: 16px 0 16px;
+    margin: 22px 0;
 }
 
 .parameter_block {
-    margin: 10px 0 10px;
+    margin: 10px 0;
 }
 
 .parameter_header {
     color: #378DB2;
     font-weight: bold;
-    margin: 10px 0 10px 10px;
 }
 
 .parameter_strike_through_text {
@@ -44,9 +42,13 @@
 }
 
 .main_text {
-    margin: 10px 10px 5px 10px;
+    margin: 10px 0;
     text-align: justify;
     font-size: 98%;
     line-height: 25px;
     text-indent: 20px;
 }
+
+    .main_text:last-child {
+        margin-bottom: 0;
+    }
