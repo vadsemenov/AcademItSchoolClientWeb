@@ -1,66 +1,68 @@
-﻿function sortArray(array) {
-    var orderedArray = array.sort(function (e1, e2) {
-        return e1 - e2;
+﻿function sortArrayOrderByDescending(array) {
+    array.sort((e1, e2) => {
+        return e2 - e1;
     });
 
-    console.log("Отсортированный массив: " + orderedArray.join(" "));
+    console.log("Отсортированный массив: " + array.join(" "));
 }
 
-function getArrayFirstFiveElements(array) {
-    var newArray = array.slice(0, 5);
+function arrayFirstFiveElements(array) {
+    const newArray = array.slice(0, 5);
 
     console.log("Первые 5 чисел в массиве: " + newArray.join(" "));
 }
 
-function getArrayLastFiveElements(array) {
-    var arrayLength = array.length;
+function arrayLastFiveElements(array) {
+    const arrayLength = array.length;
 
     if (arrayLength > 5) {
-        var newArray = array.slice(arrayLength - 5, arrayLength);
+        const newArray = array.slice(array.length - 5);
         console.log("Последние 5 чисел в массиве: " + newArray.join(" "));
-    }
-    else {
-        console.log("Массив меньше 5 элементов!");
+    } else {
+        console.log("Массив меньше 5 элементов! " + array.join(" "));
     }
 }
 
-function getEvenElementsSum(array) {
-    var sum = array.reduce((res, item, index) => {
-        if (index % 2 === 0) {
-            res += item;
+function evenElementsSum(array) {
+    const sum = array.reduce((result, item) => {
+        if (item % 2 === 0) {
+            const value = item;
+
+            result += value;
         }
-        return res;
+
+        return result;
     }, 0);
 
     console.log("Сумма четных элементов массива = " + sum);
 }
 
 function getArrayFrom1To100() {
-    var array = [];
+    const array = [];
 
-    for (var i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 100; i++) {
         array.push(i);
     }
 
     return array;
 }
 
-function getEvenNumbersSquaresList() {
-    var array = getArrayFrom1To100();
+function evenNumbersSquaresList() {
+    const array = getArrayFrom1To100();
 
-    var newArray = array.reduce((res, item, index) => {
-        if (item % 2 === 0) {
-            res.push(Math.pow(item,2));
-        }
+    const numberSquaresArray = array
+        .filter((item) => {
+            return item % 2 === 0;
+        })
+        .map((item) => {
+            return item * item;
+        });
 
-        return res;
-    }, []);
-
-    console.log("Список квадратов четных чисел: " + newArray.join(" "));
+    console.log("Список квадратов четных чисел: " + numberSquaresArray.join(" "));
 }
 
-sortArray([2, 3, 4, 1]);
-getArrayFirstFiveElements([0, 1, 2, 3, 4, 5, 6]);
-getArrayLastFiveElements([0, 1, 2, 3, 4, 5, 6]);
-getEvenElementsSum([0, 1, 2, 3, 4, 5, 6]);
-getEvenNumbersSquaresList();
+sortArrayOrderByDescending([2, 3, 4, 1]);
+arrayFirstFiveElements([0, 1, 2, 3, 4, 5, 6]);
+arrayLastFiveElements([0, 1, 2, 3, 4, 5]);
+evenElementsSum([0, 1, 2, 3, 4, 5, 6]);
+evenNumbersSquaresList();
