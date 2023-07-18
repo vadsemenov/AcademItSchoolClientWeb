@@ -15,7 +15,7 @@ body {
 
 .main_title_text {
     font-size: 32px;
-    margin: 10px 10px;
+    margin: 10px;
     text-align: center
 }
 
@@ -23,31 +23,26 @@ body {
     width: 100%;
     min-height: 300px;
     background-color: #feeed6;
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
 }
 
     .form input {
         width: 100%;
         height: 40px;
-        font-family: "Arial", sans-serif;
         font-size: 16px;
         text-indent: 10px;
         padding: 0;
     }
 
         .form input:disabled {
-            background-color: #cccccc
+            background-color: #ccc;
         }
 
     .form button {
-        right: 20px;
-        bottom: 15px;
-        width: 170px;
-        height: 40px;
+        padding: 10px 20px;
         color: #fff;
         background-color: #378db2;
         font-weight: bold;
-        font-family: "Arial", sans-serif;
         font-size: 16px;
         border-style: none;
     }
@@ -59,11 +54,11 @@ body {
 
 .title_text {
     font-weight: bold;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .description_text {
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .content_block {
@@ -83,6 +78,6 @@ body {
     border-color: #f00;
 }
 
-.invalid ~ .error_message {
-    display: block;
-}
+    .invalid ~ .error_message {
+        display: block;
+    }

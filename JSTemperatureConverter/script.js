@@ -1,22 +1,22 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
-    var celsiusTemperatureInput = document.getElementById("celsius_temperature");
-    var kelvinTemperatureInput = document.getElementById("kelvin_temperature");
-    var fahrenheitTemperatureInput = document.getElementById("fahrenheit_temperature");
-    var convertButton = document.getElementById("convert_button");
+﻿document.addEventListener("DOMContentLoaded", () => {
+    const celsiusTemperatureInput = document.getElementById("celsius_temperature");
+    const kelvinTemperatureInput = document.getElementById("kelvin_temperature");
+    const fahrenheitTemperatureInput = document.getElementById("fahrenheit_temperature");
+    const convertButton = document.getElementById("convert_button");
 
-    convertButton.addEventListener("click", function () {
+    convertButton.addEventListener("click", () => {
         celsiusTemperatureInput.classList.remove("invalid");
 
-        var celsiusTemperature = Number(celsiusTemperatureInput.value.trim());
+        const celsiusTemperatureText = celsiusTemperatureInput.value.trim();
+        const celsiusTemperature = Number(celsiusTemperatureText);
 
-        if (celsiusTemperatureInput.value.trim().length === 0 || !Number.isInteger(celsiusTemperature)) {
+        if (celsiusTemperatureText.length === 0 || isNaN(celsiusTemperature)) {
             celsiusTemperatureInput.classList.add("invalid");
             return;
         }
 
         kelvinTemperatureInput.value = convertCelsiusToKelvin(celsiusTemperature);
         fahrenheitTemperatureInput.value = convertCelsiusToFahrenheit(celsiusTemperature);
-
     });
 
     function convertCelsiusToKelvin(celsiusTemperature) {
