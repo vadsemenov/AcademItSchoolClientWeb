@@ -4,20 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JQuery TODO List </title>
-    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="jquery-3.7.0.js"></script>
+    <script defer src="node_modules/jquery/dist/jquery.js"></script>
+    <script defer src="node_modules/underscore/underscore-umd.js"></script>
+    <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="form_with_title">
+    <div class="container">
         <div class="main_title_text"><h1>JQuery ToDo List</h1></div>
         <form id="todo-form" class="form">
             <div class="content_block">
                 <div class="title_text">Введите текст:</div>
-                <input id="new-todo-text" type="text" placeholder="Текст" />
+                <input id="new-todo-text" class="form-control" type="text" placeholder="Текст" />
                 <div class="error_message">Строка не должна быть пустой!</div>
-                <button id="add-button" class="big_button" type="submit">Добавить</button>
+                <button id="add-button" class="btn big_button" type="submit">Добавить</button>
             </div>
             <ul id="todo-list"></ul>
         </form>

@@ -19,7 +19,7 @@
             return;
         }
 
-        var todoItem = $("<li>").addClass("todo_item");
+        var todoItem = $("<li class='row'>").addClass("todo_item");
 
         setViewMode();
 
@@ -29,10 +29,10 @@
 
         function setViewMode() {
 
-            todoItem.html("<div class='todo_item_text'></div>\
-            <div class='content_block'>\
-        <button class ='edit_button small_button' type='button'>Изменить</button>\
-            <button class='delete_button small_button' type='button'>Удалить</button>\
+            todoItem.html("<div class='col todo_item_text'></div>\
+            <div class='col button_content_block'>\
+        <button class ='btn edit_button small_button' type='button'>Изменить</button>\
+            <button class='btn delete_button small_button' type='button'>Удалить</button>\
                 </div>");
 
             todoItem.find(".todo_item_text").text(todoText);
@@ -44,14 +44,14 @@
             todoItem.find(".edit_button").click(function () {
                 setEditMode();
             });
-        }
+        } 
 
         function setEditMode() {
-            todoItem.html("<input class='edit_todo_item'>\
+            todoItem.html("<input class='form-control edit_todo_item'>\
             <div class='error_message'>Строка не должна быть пустой!</div>\
             <div class='content_block'>\
-        <button class ='save_button small_button' type='button'>Сохранить</button>\
-            <button class='cancel_button small_button' type='button'>Выйти</button>\
+        <button class ='btn save_button small_button' type='button'>Сохранить</button>\
+            <button class='btn cancel_button small_button' type='button'>Выйти</button>\
             </div>");
 
             todoItem.find(".edit_todo_item").val(todoText);
