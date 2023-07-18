@@ -1,4 +1,4 @@
-﻿var countries = [
+﻿const countries = [
     {
         name: "Швейцария",
         cities: [
@@ -26,35 +26,37 @@
     }
 ];
 
-function getCountryWithMaximumCities() {
-    var maximumCities = countries.reduce((citiesMaxCount, country) => { return Math.max(country.cities.length, citiesMaxCount) }, 0);
+function getCountriesWithMaxCitiesCount(countriesArray) {
+    const maxCitiesCount = countriesArray.reduce(
+        (citiesMaxCount, country) => Math.max(country.cities.length, citiesMaxCount),
+        0);
 
-    var countriesWithMaximumCities = countries.filter((country) => country.cities.length === maximumCities);
+    const countriesWithMaxCitiesCount = countriesArray.filter(country => country.cities.length === maxCitiesCount);
 
-    if (countriesWithMaximumCities.length > 0) {
-        console.log("Страна с большим количеством городов: " + countriesWithMaximumCities.map((country) => country.name).join(" "));
-    }
-    else {
-        console.log("Не найдено стран!");
-    }
+    return countriesWithMaxCitiesCount.map(country => country.name);
 }
 
-function getCountryPopulation() {
-    var countriesPopulation = {};
+function getCountriesPopulation(countriesArray) {
+    const countriesPopulation = {};
 
-    countries.forEach((country) => {
-        countriesPopulation[country.name] = country.cities.reduce((result, city) => {
-            result += city.population;
-            return result;
+    countriesArray.forEach(country => {
+        countriesPopulation[country.name] = country.cities.reduce((populationSum, city) => {
+            const cityPopulation = city.population;
+
+            populationSum += cityPopulation;
+            return populationSum;
         }, 0);
     });
 
-    for (var field in countriesPopulation) {
-        if (countriesPopulation.hasOwnProperty(field)) {
-            console.log("Страна - " + field + ": население - " + countriesPopulation[field] + " человек");
-        }
-    }
+    return countriesPopulation;
 }
 
-getCountryWithMaximumCities();
-getCountryPopulation();
+const countriesWithMaxCitiesCount = getCountriesWithMaxCitiesCount(countries);
+console.log("Страны с большим количеством городов: " + countriesWithMaxCitiesCount.join(" "));
+
+const countriesPopulation = getCountriesPopulation(countries);
+for (let field in countriesPopulation) {
+    if (countriesPopulation.hasOwnProperty(field)) {
+        console.log("Страна - " + field + ": население - " + countriesPopulation[field] + " человек");
+    }
+}
