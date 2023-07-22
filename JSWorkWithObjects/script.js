@@ -28,12 +28,10 @@
 
 function getCountriesWithMaxCitiesCount(countriesArray) {
     const maxCitiesCount = countriesArray.reduce(
-        (citiesMaxCount, country) => Math.max(country.cities.length, citiesMaxCount),
+        (maxCount, country) => Math.max(country.cities.length, maxCount),
         0);
 
-    const countriesWithMaxCitiesCount = countriesArray.filter(country => country.cities.length === maxCitiesCount);
-
-    return countriesWithMaxCitiesCount.map(country => country.name);
+    return countriesArray.filter(country => country.cities.length === maxCitiesCount);
 }
 
 function getCountriesPopulation(countriesArray) {
@@ -41,11 +39,7 @@ function getCountriesPopulation(countriesArray) {
 
     countriesArray.forEach(country => {
         countriesPopulation[country.name] = country.cities.reduce((populationSum, city) => {
-            const cityPopulation = city.population;
-
-            populationSum += cityPopulation;
-
-            return populationSum;
+            return populationSum + city.population;
         }, 0);
     });
 
@@ -53,7 +47,7 @@ function getCountriesPopulation(countriesArray) {
 }
 
 const countriesWithMaxCitiesCount = getCountriesWithMaxCitiesCount(countries);
-console.log("Страны с большим количеством городов: " + countriesWithMaxCitiesCount.join(" "));
+console.log("Страны с большим количеством городов: " + countriesWithMaxCitiesCount.map(country => country.name).join(" "));
 
 const countriesPopulation = getCountriesPopulation(countries);
 for (let field in countriesPopulation) {
