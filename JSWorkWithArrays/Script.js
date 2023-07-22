@@ -1,40 +1,25 @@
-﻿function sortArrayOrderByDescending(array) {
-    array.sort((e1, e2) => {
+﻿function getSortedArrayOrderedByDescending(array) {
+    return array.sort((e1, e2) => {
         return e2 - e1;
     });
-
-    console.log("Отсортированный массив: " + array.join(" "));
 }
 
-function arrayFirstFiveElements(array) {
-    const newArray = array.slice(0, 5);
-
-    console.log("Первые 5 чисел в массиве: " + newArray.join(" "));
+function getArrayFirstFiveElements(array) {
+    return array.slice(0, 5);
 }
 
-function arrayLastFiveElements(array) {
-    const arrayLength = array.length;
-
-    if (arrayLength > 5) {
-        const newArray = array.slice(array.length - 5);
-        console.log("Последние 5 чисел в массиве: " + newArray.join(" "));
-    } else {
-        console.log("Массив меньше 5 элементов! " + array.join(" "));
-    }
+function getArrayLastFiveElements(array) {
+    return array.slice(-5);
 }
 
-function evenElementsSum(array) {
-    const sum = array.reduce((result, item) => {
-        if (item % 2 === 0) {
-            const value = item;
+function getEvenElementsSum(array) {
+    var evenElementsArray = array.filter(element => {
+        return element % 2 === 0;
+    });
 
-            result += value;
-        }
-
-        return result;
-    }, 0);
-
-    console.log("Сумма четных элементов массива = " + sum);
+    return evenElementsArray.reduce((a, b) => {
+        return a + b;
+    });
 }
 
 function getArrayFrom1To100() {
@@ -47,22 +32,29 @@ function getArrayFrom1To100() {
     return array;
 }
 
-function evenNumbersSquaresList() {
+function getEvenNumbersSquaresList() {
     const array = getArrayFrom1To100();
 
-    const numberSquaresArray = array
-        .filter((item) => {
+    return array
+        .filter(item => {
             return item % 2 === 0;
         })
-        .map((item) => {
+        .map(item => {
             return item * item;
         });
-
-    console.log("Список квадратов четных чисел: " + numberSquaresArray.join(" "));
 }
 
-sortArrayOrderByDescending([2, 3, 4, 1]);
-arrayFirstFiveElements([0, 1, 2, 3, 4, 5, 6]);
-arrayLastFiveElements([0, 1, 2, 3, 4, 5]);
-evenElementsSum([0, 1, 2, 3, 4, 5, 6]);
-evenNumbersSquaresList();
+var sortedArray = getSortedArrayOrderedByDescending([2, 3, 4, 1]);
+console.log("Отсортированный массив по убыванию: " + sortedArray.join(" "));
+
+var arrayFirstFiveElements = getArrayFirstFiveElements([0, 1, 2, 3, 4, 5, 6]);
+console.log("Первые 5 чисел в массиве: " + arrayFirstFiveElements.join(" "));
+
+var arrayLastFiveElements = getArrayLastFiveElements([0, 1, 2, 3, 4, 5, 6]);
+console.log("Последние 5 чисел в массиве: " + arrayLastFiveElements.join(" "));
+
+var evenElementsSum = getEvenElementsSum([0, 1, 2, 3, 4, 5, 6]);
+console.log("Сумма четных элементов массива = " + evenElementsSum);
+
+var evenNumbersSquaresList = getEvenNumbersSquaresList();
+console.log("Список квадратов четных чисел: " + evenNumbersSquaresList.join(" "));
