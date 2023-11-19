@@ -1,7 +1,5 @@
 ﻿function getSortedArrayOrderedByDescending(array) {
-    return array.sort((e1, e2) => {
-        return e2 - e1;
-    });
+    return array.sort((e1, e2) => e2 - e1);
 }
 
 function getArrayFirstFiveElements(array) {
@@ -13,13 +11,9 @@ function getArrayLastFiveElements(array) {
 }
 
 function getEvenElementsSum(array) {
-    var evenElementsArray = array.filter(element => {
-        return element % 2 === 0;
-    });
+    const evenElementsArray = array.filter(element => element % 2 === 0);
 
-    return evenElementsArray.reduce((a, b) => {
-        return a + b;
-    });
+    return evenElementsArray.reduce((currentSum, currentNumber) => currentSum + currentNumber, 0);
 }
 
 function getArrayFrom1To100() {
@@ -36,12 +30,8 @@ function getEvenNumbersSquaresList() {
     const array = getArrayFrom1To100();
 
     return array
-        .filter(item => {
-            return item % 2 === 0;
-        })
-        .map(item => {
-            return item * item;
-        });
+        .filter(item => item % 2 === 0)
+        .map(item => item * item);
 }
 
 var sortedArray = getSortedArrayOrderedByDescending([2, 3, 4, 1]);
