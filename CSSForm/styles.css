@@ -8,6 +8,10 @@ body {
 }
 
 .form_with_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
     margin: auto;
     max-width: 840px;
     color: #676576;
@@ -23,17 +27,15 @@ body {
     min-height: 530px;
     position: relative;
     background-color: #feeed6;
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 20px;
 }
 
     .form input {
         width: 100%;
-        height: 40px;
+        height: 38px;
         border-style: none;
-        font-family: "Arial", sans-serif;
         font-size: 16px;
-        text-indent: 10px;
-        padding: 0;
+        padding:  0 10px;
     }
 
     .form textarea {
@@ -41,8 +43,7 @@ body {
         height: 130px;
         font-family: "Arial", sans-serif;
         font-size: 16px;
-        text-indent: 10px;
-        padding: 10px 0 0 0;
+        padding: 10px;
         border-style: none;
         resize: vertical;
     }
@@ -51,12 +52,10 @@ body {
         position: absolute;
         right: 20px;
         bottom: 15px;
-        width: 170px;
-        height: 40px;
+        padding: 11px 13px;
         color: #fff;
         background-color: #378db2;
         font-weight: bold;
-        font-family: "Arial", sans-serif;
         font-size: 16px;
         border-style: none;
     }
@@ -68,13 +67,13 @@ body {
 
 .title_text {
     font-weight: bold;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .description_text {
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
 }
 
 .content_block {
-    padding: 10px 0 0 0;
+    padding: 10px 0 0;
 }
