@@ -34,144 +34,146 @@ body {
         counter-reset: item; /* Обнуляем счетчик списка */
     }
 
-    .form li {
-        padding: 5px 0;
-        margin: 0;
+    /* .form li { */
+    /*     padding: 5px 0; */
+    /*     margin: 0; */
+    /* } */
+
+    .form li::before {
+        content: counter(item) '. '; /* Добавляем к числам точку */
+        counter-increment: item; /* Задаём имя счетчика */
     }
 
-        .form li::before {
-            content: counter(item) '. '; /* Добавляем к числам точку */
-            counter-increment: item; /* Задаём имя счетчика */
-        }
-
-    .form input {
-        width: 100%;
-        height: 40px;
-        font-size: 16px;
-        text-indent: 10px;
-        padding: 0 10px;
-    }
-
-        .form input:disabled {
-            background-color: #ccc;
-        }
-
-    .form button.small_button {
-        padding: 5px 10px;
-        color: #fff;
-        background-color: #378db2;
-        font-weight: bold;
-        font-size: 12px;
-        border-style: none;
-    }
-
-    .form button.exit_button {
-        margin: 0;
-        background-color: #969696;
-    }
-
-    .form button.save_button {
-        margin: 0;
-    }
-
-    .form button.delete_button {
-        background-color: #f00;
-    }
-
-    .form button.big_button {
-        padding: 10px 20px;
-        color: #fff;
-        background-color: #378db2;
-        font-weight: bold;
-        font-size: 16px;
-        border-style: none;
-    }
-
-    .form button:hover {
-        background-color: #80adc0;
-        cursor: pointer;
-    }
-
-.main_text_input {
-    margin: 10px 0;
+.is-invalid ~ .error_message {
+    display: block;
 }
+/* */
+/*     .form input { */
+/*         width: 100%; */
+/*         height: 40px; */
+/*         font-size: 16px; */
+/*         text-indent: 10px; */
+/*         padding: 0 10px; */
+/*     } */
+/* */
+/*         .form input:disabled { */
+/*             background-color: #ccc; */
+/*         } */
+/* */
+/*     .form button.small_button { */
+/*         padding: 5px 10px; */
+/*         color: #fff; */
+/*         background-color: #378db2; */
+/*         font-weight: bold; */
+/*         font-size: 12px; */
+/*         border-style: none; */
+/*     } */
+/* */
+/*     .form button.exit_button { */
+/*         margin: 0; */
+/*         background-color: #969696; */
+/*     } */
+/* */
+/*     .form button.save_button { */
+/*         margin: 0; */
+/*     } */
+/* */
+/*     .form button.delete_button { */
+/*         background-color: #f00; */
+/*     } */
+/* */
+/*     .form button.big_button { */
+/*         padding: 10px 20px; */
+/*         color: #fff; */
+/*         background-color: #378db2; */
+/*         font-weight: bold; */
+/*         font-size: 16px; */
+/*         border-style: none; */
+/*     } */
+/* */
+/*     .form button:hover { */
+/*         background-color: #80adc0; */
+/*         cursor: pointer; */
+/*     } */
+/* */
+/* .main_text_input { */
+/*     margin: 10px 0; */
+/* } */
+/* */
+/* .title_text { */
+/*     font-weight: bold; */
+/*     margin: 10px 0; */
+/* } */
+/* */
+/* .description_text { */
+/*     margin: 10px 0; */
+/* } */
+/* */
+/* .error_message { */
+/*     padding: 0 0 10px 0; */
+/*     text-align: center; */
+/*     color: #f00; */
+/*     display: none; */
+/* } */
+/* */
+/* .note_error_message { */
+/*     padding: 0 0 10px 0; */
+/*     color: #f00; */
+/*     display: none; */
+/* } */
 
-.title_text {
-    font-weight: bold;
-    margin: 10px 0;
-}
+/* .invalid { */
+/*     border-color: #f00; */
+/* } */
 
-.description_text {
-    margin: 10px 0;
-}
 
-.error_message {
-    padding: 0 0 10px 0;
-    text-align: center;
-    color: #f00;
-    display: none;
-}
 
-.note_error_message {
-    padding: 0 0 10px 0;
-    color: #f00;
-    display: none;
-}
-
-.invalid {
-    border-color: #f00;
-}
-
-    .invalid ~ .error_message {
-        display: block;
-    }
-
-.content_block {
-    text-align: center;
-    width: 100%;
-}
-
-    .content_block button {
-        margin-top: 10px;
-    }
-
-.button_content_block {
-    text-align: right;
-    padding: 0;
-    width: 100%;
-}
-
-.btn {
-    margin-bottom: 5px;
-}
-
-.todo_item_text {
-    padding-right: 0;
-    padding: 10px 0;
-    word-wrap: break-word;
-}
-
-div.col.todo_item_text {
-    width: 80%;
-    padding: 0;
-}
-
-div.col.content_block {
-    text-align: right;
-}
-
-input.col.form-control.edit_todo_item {
-    width: 100%
-}
-
-div.col.content_block {
-    padding: 0;
-}
-
-.todo_item + .todo_item {
-    margin-top: 5px;
-}
-
-.form_control {
-    width: 80%;
-}
+/* .content_block { */
+/*     text-align: center; */
+/*     width: 100%; */
+/* } */
+/* */
+/*     .content_block button { */
+/*         margin-top: 10px; */
+/*     } */
+/* */
+/* .button_content_block { */
+/*     text-align: right; */
+/*     padding: 0; */
+/*     width: 100%; */
+/* } */
+/* */
+/* .btn { */
+/*     margin-bottom: 5px; */
+/* } */
+/* */
+/* .todo_item_text { */
+/*     padding-right: 0; */
+/*     padding: 10px 0; */
+/*     word-wrap: break-word; */
+/* } */
+/* */
+/* div.col.todo_item_text { */
+/*     width: 80%; */
+/*     padding: 0; */
+/* } */
+/* */
+/* div.col.content_block { */
+/*     text-align: right; */
+/* } */
+/* */
+/* input.col.form-control.edit_todo_item { */
+/*     width: 100% */
+/* } */
+/* */
+/* div.col.content_block { */
+/*     padding: 0; */
+/* } */
+/* */
+/* .todo_item + .todo_item { */
+/*     margin-top: 5px; */
+/* } */
+/* */
+/* .form_control { */
+/*     width: 80%; */
+/* } */

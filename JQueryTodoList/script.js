@@ -10,10 +10,10 @@
 
     addButton.click(() => {
         let todoText = todoInput.val().trim();
-        todoInput.removeClass("invalid");
+        todoInput.removeClass("is-invalid");
 
         if (todoText.length === 0) {
-            todoInput.addClass("invalid");
+            todoInput.addClass("is-invalid");
             return;
         }
 
@@ -65,9 +65,9 @@
                 const editedTodoText = todoItem.find(".edit_todo_item").val().trim();
 
                 if (editedTodoText.length === 0) {
-                    todoItem.find(".edit_todo_item").addClass("invalid");
+                    todoItem.find(".edit_todo_item").addClass("is-invalid");
                 } else {
-                    todoItem.find(".edit_todo_item").removeClass("invalid");
+                    todoItem.find(".edit_todo_item").removeClass("is-invalid");
 
                     todoText = editedTodoText;
 
