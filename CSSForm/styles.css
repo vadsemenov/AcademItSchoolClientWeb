@@ -19,7 +19,7 @@ body {
 
 .main_title_text {
     font-size: 32px;
-    margin: 10px 10px;
+    margin: 10px 20px;
 }
 
 .form {
@@ -35,7 +35,7 @@ body {
         height: 38px;
         border-style: none;
         font-size: 16px;
-        padding:  0 10px;
+        padding: 0 10px;
     }
 
     .form textarea {
@@ -49,15 +49,15 @@ body {
     }
 
     .form button {
-        position: absolute;
-        right: 20px;
-        bottom: 15px;
-        padding: 11px 13px;
-        color: #fff;
-        background-color: #378db2;
-        font-weight: bold;
-        font-size: 16px;
         border-style: none;
+        font-size: 17px;
+        display: block;
+        margin-top: 14px;
+        margin-left: auto;
+        padding: 8px 9px;
+        font-weight: 600;
+        color: #fff;
+        background: #378db2;
     }
 
         .form button:hover {
@@ -66,6 +66,7 @@ body {
         }
 
 .title_text {
+    display: inline-block;
     font-weight: bold;
     margin: 10px 0;
 }
