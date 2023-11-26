@@ -1,52 +1,53 @@
-﻿* {
-    box-sizing: border-box;
-}
+﻿/* * { */
+/*     box-sizing: border-box; */
+/* } */
 
-body {
-    font-family: "Arial", sans-serif;
-    font-size: 16px;
-}
+/* body { */
+/*     font-family: "Arial", sans-serif; */
+/*     font-size: 16px; */
+/* } */
 
-.form_with_title {
-    margin: auto;
-    max-width: 500px;
-    color: #676576;
-}
+/* .form_with_title { */
+/*     margin: auto; */
+/*     max-width: 500px; */
+/*     color: #676576; */
+/* } */
 
-.main_title_text {
-    font-size: 32px;
-    margin: 10px;
-    text-align: center
-}
+/* .main_title_text { */
+/*     font-size: 32px; */
+/*     margin: 10px; */
+/*     text-align: center */
+/* } */
 
-.form {
-    width: 100%;
-    min-height: 300px;
-    min-width: 515px;
-    background-color: #feeed6;
-    padding: 20px;
-}
+/* .form { */
+/*     width: 100%; */
+/*     min-height: 300px; */
+/*     min-width: 515px; */
+/*     background-color: #feeed6; */
+/*     padding: 20px; */
+/* } */
 
-    .form ol {
-        text-align: left;
-        padding-left: 0;
-        list-style-type: none; /* Убираем исходные маркеры */
-        counter-reset: item; /* Обнуляем счетчик списка */
-    }
+    /* .form ol { */
+    /*     /* text-align: left; !1! */
+    /*     /* padding-left: 0; !1! */
+    /*     list-style-type: none; /* Убираем исходные маркеры !1! */
+    /*     counter-reset: item; /* Обнуляем счетчик списка !1! */
+    /* } */
 
     /* .form li { */
     /*     padding: 5px 0; */
     /*     margin: 0; */
     /* } */
 
-    .form li::before {
-        content: counter(item) '. '; /* Добавляем к числам точку */
-        counter-increment: item; /* Задаём имя счетчика */
-    }
+    /* .form li::before { */
+    /*     content: counter(item) '. '; /* Добавляем к числам точку !1! */
+    /*     counter-increment: item; /* Задаём имя счетчика !1! */
+    /* } */
 
-.is-invalid ~ .error_message {
-    display: block;
-}
+/* .is-invalid ~ .error_message { */
+/*     display: block; */
+/* } */
+
 /* */
 /*     .form input { */
 /*         width: 100%; */

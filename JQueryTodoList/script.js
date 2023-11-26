@@ -17,7 +17,7 @@
             return;
         }
 
-        const todoItem = $("<li class='row todo_item'>");
+        const todoItem = $("<li class='row list-group-item d-flex'>");
 
         setViewMode();
 
@@ -26,11 +26,11 @@
         todoInput.val("");
 
         function setViewMode() {
-            todoItem.html("<div class='col todo_item_text'></div>\
-                              <div class='col button_content_block'>\
-                                <button class ='btn edit_button small_button' type='button'>Изменить</button>\
-                                <button class='btn delete_button small_button' type='button'>Удалить</button>\
-                              </div>");
+            todoItem.html("<div class='col-9 todo_item_text text-justify'></div>\
+                            <div class= 'col-2 btn-group' role ='group' >\
+                                 <button class='btn btn-success edit_button' type='button'>Изменить</button>\
+                                 <button class='btn btn-danger delete_button' type='button'>Удалить</button>\
+                            </div>");
 
             todoItem.find(".todo_item_text").text(todoText);
 
@@ -40,12 +40,16 @@
         }
 
         function setEditMode() {
-            todoItem.html("<input class='col form-control edit_todo_item'>\
-                           <div class='col content_block'>\
-                                <button class ='btn save_button small_button' type='button'>Сохранить</button>\
-                                <button class='btn cancel_button small_button exit_button' type='button'>Выйти</button>\
-                           </div>\
-                           <div class='error_message'>Строка не должна быть пустой!</div>");
+            todoItem.html("<div class='input-group has-validation'>\
+                               <input class='col form-control edit_todo_item'>\
+                               <div class='col btn-group' role='group'>\
+                                   <button class ='btn btn-success save_button' type='button'>Сохранить</button>\
+                                   <button class='btn btn-secondary cancel_button' type='button'>Выйти</button>\
+                               </div>\
+                               <div class='invalid-feedback'>\
+                                   Строка не должна быть пустой!\
+                               </div >\
+                           </div>");
 
             const todoItemInput = todoItem.find(".edit_todo_item");
 

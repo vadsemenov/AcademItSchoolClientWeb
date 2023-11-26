@@ -11,27 +11,21 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="main_title_text"><h1>JQuery ToDo List</h1></div>
+    <div class="container text-center">
+        <div class="h1 text-center">JQuery ToDo List</div>
         <form id="todo-form" class="form">
-            <!-- <div class="content_block"> -->
-            <!--     <div class="title_text">Введите текст:</div> -->
-            <!--     <input id="new-todo-text" class="form-control main_text_input" type="text" placeholder="Текст" /> -->
-            <!--     <div class="error_message">Строка не должна быть пустой!</div> -->
-            <!--     <button id="add-button" class="btn big_button" type="submit">Добавить</button> -->
-            <!-- </div> -->
             <div class="input-group has-validation">
                 <label for="new-todo-text" class="form-label">Введите текст:</label>
-                <div class="input-group has-validation">
+                <div class="input-group has-validation row">
                     <input id="new-todo-text" class="form-control" type="text" placeholder="Текст" />
                     <!-- <div class="error_message">Строка не должна быть пустой!</div> -->
-                    <div class="invalid-feedback">
+                    <div class="invalid-feedback text-center">
                         Строка не должна быть пустой!
                     </div>
                 </div>
-                <button id="add-button" class="btn big_button" type="submit">Добавить</button>
             </div>
-            <ol id="todo-list"></ol>
+            <button id="add-button" class="btn btn-primary" type="submit">Добавить</button>
+            <ol id="todo-list" class="list-group list-group-numbered"></ol>
         </form>
     </div>
 </body>
