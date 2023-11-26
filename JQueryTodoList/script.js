@@ -9,7 +9,6 @@
     });
 
     addButton.click(() => {
-
         let todoText = todoInput.val().trim();
         todoInput.removeClass("invalid");
 
@@ -18,7 +17,7 @@
             return;
         }
 
-        const todoItem = $("<li class='row'>").addClass("todo_item");
+        const todoItem = $("<li class='row todo_item'>");
 
         setViewMode();
 
@@ -27,35 +26,42 @@
         todoInput.val("");
 
         function setViewMode() {
-
             todoItem.html("<div class='col todo_item_text'></div>\
-                           <div class='col button_content_block'>\
+                              <div class='col button_content_block'>\
                                 <button class ='btn edit_button small_button' type='button'>Изменить</button>\
-                                <button class='btn delete_button small_button delete_button' type='button'>Удалить</button>\
-                           </div>");
+                                <button class='btn delete_button small_button' type='button'>Удалить</button>\
+                              </div>");
 
             todoItem.find(".todo_item_text").text(todoText);
 
-            todoItem.find(".delete_button").click(() => {
-                todoItem.remove();
-            });
+            todoItem.find(".delete_button").click(() => todoItem.remove());
 
-            todoItem.find(".edit_button").click(() => {
-                setEditMode();
-            });
+            todoItem.find(".edit_button").click(() => setEditMode());
         }
 
         function setEditMode() {
-            todoItem.html("<input class='form-control edit_todo_item'>\
-                           <div class='error_message'>Строка не должна быть пустой!</div>\
-                           <div class='content_block'>\
+            todoItem.html("<input class='col form-control edit_todo_item'>\
+                           <div class='col content_block'>\
                                 <button class ='btn save_button small_button' type='button'>Сохранить</button>\
                                 <button class='btn cancel_button small_button exit_button' type='button'>Выйти</button>\
-                           </div>");
+                           </div>\
+                           <div class='error_message'>Строка не должна быть пустой!</div>");
 
-            todoItem.find(".edit_todo_item").val(todoText);
+            const todoItemInput = todoItem.find(".edit_todo_item");
 
-            todoItem.find(".save_button").click(() => {
+            todoItemInput.val(todoText);
+
+            todoItemInput.keypress(event => {
+                if (event.key === 13 || event.key === "Enter") {
+                    saveEventHandler();
+                }
+            });
+
+            todoItem.find(".save_button").click(() => saveEventHandler());
+
+            todoItem.find(".cancel_button").click(() => setViewMode());
+
+            function saveEventHandler() {
                 const editedTodoText = todoItem.find(".edit_todo_item").val().trim();
 
                 if (editedTodoText.length === 0) {
@@ -67,11 +73,7 @@
 
                     setViewMode();
                 }
-            });
-
-            todoItem.find(".cancel_button").click(() => {
-                setViewMode();
-            });
+            }
         }
     });
 });
