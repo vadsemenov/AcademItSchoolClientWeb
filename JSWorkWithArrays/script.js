@@ -1,5 +1,5 @@
 ﻿(function () {
-    function sortArrayOrderByDescending(array) {
+    function sortArrayInDescendingOrder(array) {
         array.sort((e1, e2) => e2 - e1);
     }
 
@@ -11,9 +11,9 @@
         return array.slice(-5);
     }
 
-    function getEvenElementsSum(array) {
-        return array.filter(element => element % 2 === 0)
-            .reduce((currentSum, currentNumber) => currentSum + currentNumber, 0);
+    function getEvenNumbersSum(array) {
+        return array.filter(number => number % 2 === 0)
+            .reduce((sum, number) => sum + number, 0);
     }
 
     function getFrom1To100Array() {
@@ -27,17 +27,16 @@
     }
 
     function getEvenNumbersSquaresArray(array) {
-        //        const array = getFrom1To100Array();
         return array
-            .filter(item => item % 2 === 0)
-            .map(item => item * item);
+            .filter(number => number % 2 === 0)
+            .map(number => number * number);
     }
 
     const array1 = [2, 3, 4, 1];
     const array2 = [0, 1, 2, 3, 4, 5, 6];
     const array3 = getFrom1To100Array();
 
-    sortArrayOrderByDescending(array1);
+    sortArrayInDescendingOrder(array1);
     console.log("Отсортированный массив по убыванию: " + array1.join(" "));
 
     const arrayFirstFiveElements = getArrayFirstFiveElements(array2);
@@ -46,8 +45,8 @@
     const arrayLastFiveElements = getArrayLastFiveElements(array2);
     console.log("Последние 5 чисел в массиве: " + arrayLastFiveElements.join(" "));
 
-    const evenElementsSum = getEvenElementsSum(array2);
-    console.log("Сумма четных элементов массива = " + evenElementsSum);
+    const evenNumbersSum = getEvenNumbersSum(array2);
+    console.log("Сумма четных элементов массива = " + evenNumbersSum);
 
     const evenNumbersSquaresList = getEvenNumbersSquaresArray(array3);
     console.log("Список квадратов четных чисел: " + evenNumbersSquaresList.join(" "));
