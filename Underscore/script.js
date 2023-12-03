@@ -1,4 +1,4 @@
-﻿var people = [
+﻿const people = [
     { name: "Semen", age: 17 },
     { name: "Ivan", age: 20 },
     { name: "Petr", age: 30 },
@@ -20,8 +20,8 @@ console.log("Люди в возрасте от 20 до 30 включительн
 console.log(getOrderedAscPeopleFrom20To30(people));
 console.log("----------------------");
 
-console.log("Люди в возрасте от 20 до 30 включительно,с уникальными именами по убыванию возраста:");
-console.log(getOrderedByDescendingUniquePeopleFrom20To30(people));
+console.log("Cписок уникальных имен людей с возрастом от 20 до 30 включительно, отсортированный по убыванию возраста:");
+console.log(getOrderedByDescendingUniquePeopleNamesFrom20To30(people));
 console.log("----------------------");
 
 console.log("Новый объект: имя - колличество людей с таким именем:");
@@ -33,7 +33,7 @@ function getAverageAge(people) {
         return null;
     }
 
-    return _.reduce(people, (memo, num) => memo + num.age, 0) / people.length;
+    return _.reduce(people, (memo, person) => memo + person.age, 0) / people.length;
 }
 
 // Получить список людей с возрастом от 20 до 30
@@ -41,17 +41,17 @@ function getAverageAge(people) {
 // возраста
 function getOrderedAscPeopleFrom20To30(people) {
     return _.chain(people)
-        .filter((person) => person.age >= 20 && person.age <= 30)
-        .sortBy((person) => person.age)
+        .filter(person => person.age >= 20 && person.age <= 30)
+        .sortBy(person => person.age)
         .value();
 }
 
 // Получить список уникальных имен людей с возрастом
 // от 20 до 30 включительно, отсортировать его по
 // убыванию
-function getOrderedByDescendingUniquePeopleFrom20To30(people) {
+function getOrderedByDescendingUniquePeopleNamesFrom20To30(people) {
     return _.chain(people)
-        .filter((person) => person.age >= 20 && person.age <= 30)
+        .filter(person => person.age >= 20 && person.age <= 30)
         .pluck("name")
         .unique()
         .sortBy()
