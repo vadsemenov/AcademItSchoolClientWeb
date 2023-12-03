@@ -12,25 +12,25 @@
         <h1 class="main_title_text">Отправить заявку</h1>
         <form class="form" action="action.php" method="post">
             <div class="content_block">
-                <label class="title_text">Ваше имя</label>
-                <input name="Name" placeholder="Ваше имя *" />
+                <label class="title_text" for="NameField">Ваше имя</label>
+                <input id="NameField" name="Name" placeholder="Ваше имя *" />
             </div>
             <div class="content_block">
-                <label class="title_text">Ваш номер телефона</label>
-                <input name="Telephone" placeholder="Ваш номер телефона *" />
+                <label class="title_text" for="TelephoneField">Ваш номер телефона</label>
+                <input id="TelephoneField" name="Telephone" placeholder="Ваш номер телефона *" />
             </div>
             <div class="content_block">
-                <label class="title_text">Ваш email или VK *</label>
-                <input name="EmailVK" placeholder="Ваш email или VK" />
+                <label class="title_text" for="EmailField">Ваш email или VK *</label>
+                <input id="EmailField" name="EmailVK" placeholder="Ваш email или VK" />
             </div>
             <div class="content_block">
-                <label class="title_text">Комментарий</label>
-                <textarea name="Comment" placeholder="Комментарий (не обязательно)"></textarea>
+                <label class="title_text" for="CommentField">Комментарий</label>
+                <textarea id="CommentField" name="Comment" placeholder="Комментарий (не обязательно)"></textarea>
             </div>
             <div class="content_block">
                 <div class="description_text">Заполните и отправьте форму, и мы перезвоним Вам по указанному номеру</div>
             </div>
-            <button type="submit">Отправить заявку</button>
+            <button class="send_button" type="submit">Отправить заявку</button>
         </form>
     </div>
 </body>
