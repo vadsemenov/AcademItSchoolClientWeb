@@ -4,7 +4,7 @@
     const addButton = $("#add-button");
     const todoList = $("#todo-list");
 
-    form.submit((e) => {
+    form.submit(e => {
         e.preventDefault();
     });
 
@@ -69,21 +69,19 @@
             todoItem.find(".cancel-button").click(() => setViewMode());
 
             function saveEventHandler() {
-                const editedTodoText = todoItem.find(".edit-todo-item").val().trim();
+                const editedTodoText = todoItemInput.val().trim();
 
                 if (editedTodoText.length === 0) {
-                    todoItem.find(".edit-todo-item").addClass("is-invalid");
+                    todoItemInput.addClass("is-invalid");
 
                     return;
                 }
 
-                todoItem.find(".edit-todo-item").removeClass("is-invalid");
+                todoItemInput.removeClass("is-invalid");
 
                 todoText = editedTodoText;
 
                 setViewMode();
-
-                return;
             }
         }
     });
