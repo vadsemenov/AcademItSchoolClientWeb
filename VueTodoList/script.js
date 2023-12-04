@@ -36,7 +36,6 @@
 
         modifyItem: function (item) {
             item.isEditing = true;
-
             item.editText = item.text;
         },
 
@@ -48,15 +47,12 @@
             }
 
             item.text = item.editText;
-
             item.isInvalid = false;
-
             item.isEditing = false;
         },
 
         exitItem: function (item) {
             item.isInvalid = false;
-
             item.isEditing = false;
         }
     }
