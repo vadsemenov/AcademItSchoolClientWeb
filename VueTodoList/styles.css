@@ -1,15 +1,9 @@
 ﻿.btn {
     width: 100px;
-    margin: 3px 0;
 }
 
 .form-control.edit-todo-item {
     display: inline-block;
-    margin-top: 3px;
     height: 30px;
-    background: beige;
-}
-
-.todo-item-text {
-    padding-left: 10px;
+    background: #F5F5DC;
 }

@@ -12,43 +12,43 @@
 </head>
 <body>
     <div id="app" class="container text-center">
-        <div class="h1 text-center">JQuery ToDo List</div>
+        <label class="h1 text-center">Vue ToDo List</label>
         <form @submit.prevent id="todo-form" class="form">
             <div class="input-group has-validation">
                 <label for="new-todo-text" class="form-label">Введите текст:</label>
                 <div class="input-group has-validation row">
-                    <input id="new-todo-text" :class="{isInvalid: isNewItemInvalid}" v-model="newTodoText" class="form-control" type="text" placeholder="Текст" />
+                    <input id="new-todo-text" :class="{'is-invalid': isNewItemInvalid}" v-model="newTodoText" class="form-control" type="text" placeholder="Текст" />
                     <div class="invalid-feedback text-center">
                         Строка не должна быть пустой!
                     </div>
                 </div>
             </div>
-            <button id="add-button" @click="addItem" class="btn btn-primary" type="submit">Добавить</button>
+            <button id="add-button" @click="addItem" class="btn btn-primary my-1" type="submit">Добавить</button>
         </form>
         <ol id="todo-list" class="list-group list-group-numbered">
-            <li class="list-group-item d-flex justify-content-between" v-for="item in items" :key="item.id">
+            <li class="list-group-item d-flex justify-content-between" v-for="item in items" :key="itemId">
                 <template v-if="!item.isEditing">
-                    <div class="col todo-item-text text-start text-break" v-text="item.text"></div>
+                    <div class="col px-1 todo-item-text text-start text-break" v-text="item.text"></div>
                     <div class="col-3 text-end">
-                        <button class="btn btn-success edit-button button-width" type="button">Изменить</button>
-                        <button class="btn btn-danger delete-button button-width" type="button">Удалить</button>
+                        <button @click="modifyItem(item)" class="btn my-1 btn-success edit-button button-width" type="button">Изменить</button>
+                        <button @click="deleteItem(item)" class="btn my-1 btn-danger delete-button button-width" type="button">Удалить</button>
                     </div>
                 </template>
-            
-            <template v-else>
-                <div class="input-group has-validation">
-                    <div class="col">
-                        <input class="form-control edit-todo-item">
-                        <div class="invalid-feedback">
-                            Строка не должна быть пустой!
+
+                <template v-else>
+                    <div class="input-group has-validation">
+                        <div class="col">
+                            <input class="form-control edit-todo-item mt-1" :class="{'is-invalid': item.isInvalid}" v-model="item.editText">
+                            <div class="invalid-feedback">
+                                Строка не должна быть пустой!
+                            </div>
+                        </div>
+                        <div class="col-3 text-end">
+                            <button @click="saveItem(item)" class="btn my-1 btn-success save-button button-width" type="button">Сохранить</button>
+                            <button @click="exitItem(item)" class="btn my-1 btn-secondary cancel-button button-width" type="button">Выйти</button>
                         </div>
                     </div>
-                    <div class="col-3 text-end">
-                        <button class="btn btn-success save-button button-width" type="button">Сохранить</button>
-                        <button class="btn btn-secondary cancel-button button-width" type="button">Выйти</button>
-                    </div>
-                </div>
-            </template>
+                </template>
             </li>
         </ol>
     </div>
