@@ -26,10 +26,10 @@
         todoInput.val("");
 
         function setViewMode() {
-            todoItem.html("<div class='col todo-item-text text-start text-break'></div>\
+            todoItem.html("<div class='col px-1 todo-item-text text-start text-break'></div>\
                            <div class='col-3 text-end'>\
-                                 <button class='btn btn-success edit-button button-width' type='button'>Изменить</button>\
-                                 <button class='btn btn-danger delete-button button-width' type='button'>Удалить</button>\
+                                 <button class='btn my-1 btn-success edit-button button-width' type='button'>Изменить</button>\
+                                 <button class='btn my-1 btn-danger delete-button button-width' type='button'>Удалить</button>\
                            </div>");
 
             todoItem.find(".todo-item-text").text(todoText);
@@ -42,14 +42,14 @@
         function setEditMode() {
             todoItem.html("<div class='input-group has-validation'>\
                              <div class='col'>\
-                               <input class='form-control edit-todo-item'>\
+                               <input class='form-control edit-todo-item mt-1'>\
                                <div class='invalid-feedback'>\
                                    Строка не должна быть пустой!\
                                </div>\
                              </div>\
                              <div class='col-3 text-end'>\
-                                   <button class='btn btn-success save-button button-width' type='button'>Сохранить</button>\
-                                   <button class='btn btn-secondary cancel-button button-width' type='button'>Выйти</button>\
+                                   <button class='btn my-1 btn-success save-button button-width' type='button'>Сохранить</button>\
+                                   <button class='btn my-1 btn-secondary cancel-button button-width' type='button'>Выйти</button>\
                              </div>\
                            </div>");
 
