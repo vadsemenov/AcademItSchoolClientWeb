@@ -1,6 +1,4 @@
 ﻿$(document).ready(function () {
-//    $("body").append($.ui.dialog.overlay.create());
-
     const addForm = $("#add-form");
     const addButton = $("#add-button");
     const tbodyBlock = $("#tbody-block");
