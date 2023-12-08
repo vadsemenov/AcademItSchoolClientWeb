@@ -15,8 +15,8 @@
         }
     });
 
-    addForm.submit(e => {
-        e.preventDefault();
+    addForm.submit(event => {
+        event.preventDefault();
     });
 
     function addContactToTable() {
@@ -38,8 +38,8 @@
         const deleteRowButton = $("<input class='delete-row-button' type='button' name='delete-contact' value='X' title='Delete this row' />")
             .click(showDeleteDialog);
 
-        deleteRowButton.hover(function () {
-            $(this).css('cursor', 'pointer');
+        deleteRowButton.hover(event => {
+            $(event.target).css('cursor', 'pointer');
         });
 
         const buttonCell = $("<td></td>").append(deleteRowButton);
