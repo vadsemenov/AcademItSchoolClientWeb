@@ -6,7 +6,7 @@
 
     addButton.click(addContactToTable);
 
-    phoneNumberInput.on("input", function (event) {
+    phoneNumberInput.on("input", event => {
         const eventInput = $(event.target);
         const text = eventInput.val();
 
@@ -15,7 +15,7 @@
         }
     });
 
-    addForm.submit(function (e) {
+    addForm.submit(e => {
         e.preventDefault();
     });
 
@@ -105,8 +105,8 @@
             return;
         }
 
-        rowNumberCells.each(function (index) {
-            $(this).text(index + 1);
+        rowNumberCells.each((index, cell) => {
+            $(cell).text(index + 1);
         });
     }
 
@@ -114,10 +114,10 @@
         const namesInputs = $(".input-block");
         let allInputsIsValid = true;
 
-        namesInputs.each(function (index) {
-            const input = $(this);
+        namesInputs.each((index, nameInput) => {
+            const input = $(nameInput);
             const errorText = input.next();
-            const inputText = $(this).val();
+            const inputText = $(nameInput).val();
 
             if (!validateText(inputText)) {
                 input.css('border-color', '#f00');
