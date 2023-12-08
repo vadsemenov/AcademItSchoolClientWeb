@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JQuery Phone book </title>
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="jquery-3.7.0.js"></script>
     <script defer src="jquery-ui-1.13.2/jquery-ui.js"></script>
     <script defer src="script.js"></script>
@@ -28,9 +28,8 @@
                 </div>
                 <div class="label-input-block">
                     <div>Phone number:</div>
-                    <input id="phone-add-input" class="input-block" type="number" placeholder="Phone number" />
+                    <input id="phone-add-input" maxlength="10" type="text" placeholder="Phone number" />
                     <div class="non-visible-message">Field is not valid</div>
-
                 </div>
                 <div class="content-block">
                     <button id="add-button" class="ui-button ui-widget ui-corner-all" type="submit">Add contact</button>
@@ -51,7 +50,7 @@
         </form>
         <div id="dialog-confirm" title="Delete this contact?">
             <p>
-                <span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+                <span class="ui-icon ui-icon-alert" style="float: left; margin: 12px 12px 20px 0;"></span>
                 These contact will be permanently deleted and cannot be recovered. Are you sure?
             </p>
             <br><br>

@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+//    $("body").append($.ui.dialog.overlay.create());
+
     const addForm = $("#add-form");
     const addButton = $("#add-button");
     const tbodyBlock = $("#tbody-block");
@@ -38,6 +40,10 @@
         const deleteRowButton = $("<input class='delete-row-button' type='button' name='delete-contact' value='X' title='Delete this row' />")
             .click(showDeleteDialog);
 
+        deleteRowButton.hover(function () {
+            $(this).css('cursor', 'pointer');
+        });
+
         const buttonCell = $("<td></td>").append(deleteRowButton);
 
         tableRow.append(numberCell);
@@ -49,6 +55,10 @@
         tbodyBlock.append(tableRow);
 
         numerateContacts();
+
+        firstName.val("");
+        lastName.val("");
+        phoneNumber.val("");
     }
 
     function showDeleteDialog(event) {
@@ -65,6 +75,7 @@
         dialog.find(".phone-number-dialog").text(phoneNumber);
 
         dialog.dialog({
+            appendTo: "body",
             resizable: false,
             height: "auto",
             width: 400,
@@ -102,22 +113,57 @@
     }
 
     function validateInputText() {
-        const inputs = $(".input-block");
+        const namesInputs = $(".input-block");
         let allInputsIsValid = true;
 
-        inputs.each(function (index) {
+        namesInputs.each(function (index) {
             const input = $(this);
             const errorText = input.next();
+            const inputText = $(this).val();
 
-            if (input.val().length === 0) {
-                errorText.css("display", "block");
-                errorText.css("color", "#f00");
+            if (!validateText(inputText)) {
+                input.css('border-color', '#f00');
+
+                errorText.show();
+
                 allInputsIsValid = false;
             } else {
-                errorText.css("display", "none");
+                input.css('border-color', '#000');
+
+                errorText.hide();
             }
         });
 
+        const phoneText = phoneNumberInput.val();
+        const phoneErrorText = phoneNumberInput.next();
+
+        if (!validateText(phoneText) || !validatePhoneNumber(phoneText)) {
+            phoneNumberInput.css('border-color', '#f00');
+
+            phoneErrorText.show();
+
+            allInputsIsValid = false;
+        } else {
+            phoneNumberInput.css('border-color', '#000');
+
+            phoneErrorText.hide();
+        }
+
         return allInputsIsValid;
+    }
+
+    function validateText(text) {
+        if (text.trim().length === 0 || /\s/.test(text.trim())) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function validatePhoneNumber(text) {
+        const numberPattern = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
+        const isPhoneNumber = numberPattern.test(text);
+
+        return isPhoneNumber;
     }
 });
