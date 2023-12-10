@@ -1,0 +1,84 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div id="app" class="container text-center justify-content-center align-content-center">
+        <form @submit.prevent class="form">
+            <div class="row">
+                <div class="col-lg-8">
+                    <label class="h1 text-center"><h2>Vue phone book</h2></label>
+                    <div class="border border-primary p-2 mw-100">
+                        <div class="input-group has-validation d-inline-block my-2">
+                            <label class="d-block">Last name:</label>
+                            <div class="input-group has-validation row">
+                                <input v-model="lastName" :class="{'is-invalid': isLastNameInvalid}" class="form-control" maxlength="30" type="text" placeholder="Last name" />
+                                <div class="invalid-feedback text-center">Field is not valid</div>
+                            </div>
+                        </div>
+                        <div class="input-group has-validation d-inline-block my-2">
+                            <label class="d-block">First name:</label>
+                            <div class="input-group has-validation row">
+                                <input v-model="firstName" :class="{'is-invalid': isFirstNameInvalid}" class="form-control" maxlength="30" type="text" placeholder="First name" />
+                                <div class="invalid-feedback text-center">Field is not valid</div>
+                            </div>
+                        </div>
+                        <div class="input-group has-validation d-inline-block my-2">
+                            <label class="d-block">Phone number:</label>
+                            <div class="input-group has-validation row">
+                                <input v-model="phoneNumber" :class="{'is-invalid': isPhoneNumberInvalid}" class="form-control" maxlength="30" type="text" placeholder="Phone number" />
+                                <div class="invalid-feedback text-center">Field is not valid</div>
+                            </div>
+                        </div>
+                        <button @click="addContact" class="btn btn-primary my-1" type="submit">Add contact</button>
+                    </div>
+                    <div class="p-2 mw-100">
+                        <div class="input-group mb-3">
+                            <input v-model="term" class="form-control" maxlength="30" type="text" placeholder="Search text" />
+                            <button @click="loadContacts" class="btn btn-primary" type="button">Search contacts</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive mt-1">
+                        <table id="contacts-table" class="table table-primary table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Phone number</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(contact, index) in contacts" :key="contact.id">
+                                    <template>
+                                        <th scope="row" v-text="contact.id"></th>
+                                        <td v-text="contact.lastName"></td>
+                                        <td v-text="contact.firstName"></td>
+                                        <td v-text="contact.phoneNumber"></td>
+                                        <td><button class="btn" @click="showDeleteConfirmationDialog(contact)" type="button" name="delete-contact" title="Delete this row">X</button></td>
+                                    </template>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div ref="deleteConfirmationDialog" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure want to delete the contact?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button @click="deleteContact" type="button" data-bs-dismiss="modal" class="btn btn-primary">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
