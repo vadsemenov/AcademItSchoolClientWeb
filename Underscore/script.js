@@ -21,7 +21,7 @@
     console.log(getOrderedAscPeopleFrom20To30(people));
     console.log("----------------------");
 
-    console.log("Cписок уникальных имен людей с возрастом от 20 до 30 включительно, отсортированный по убыванию возраста:");
+    console.log("Cписок уникальных имен людей с возрастом от 20 до 30 включительно, отсортированный по именам:");
     console.log(getOrderedByDescendingUniquePeopleNamesFrom20To30(people));
     console.log("----------------------");
 
