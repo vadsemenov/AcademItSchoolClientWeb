@@ -17,7 +17,8 @@
             return;
         }
 
-        const todoItem = $("<li class='list-group-item d-flex justify-content-between'>");
+        //        const todoItem = $("<li class='list-group-item d-flex justify-content-between'>");
+        const todoItem = $("<tr class='table-row'></tr>");
 
         setViewMode();
 
@@ -26,32 +27,44 @@
         todoInput.val("");
 
         function setViewMode() {
-            todoItem.html("<div class='col px-1 todo-item-text text-start text-break'></div>\
-                           <div class='col-3 text-end'>\
+            const number = todoItem.find(".number").text();
+
+            todoItem.html("<th scope='row' class='col-1 number align-middle'></th>\
+                           <td class='todo-item-text align-middle text-start text-break'></td>\
+                           <td class='col-3 align-middle'>\
                                  <button class='btn my-1 btn-success edit-button button-width' type='button'>Изменить</button>\
                                  <button class='btn my-1 btn-danger delete-button button-width' type='button'>Удалить</button>\
-                           </div>");
+                           </td>");
+
+            todoItem.find(".number").text(number);
 
             todoItem.find(".todo-item-text").text(todoText);
 
-            todoItem.find(".delete-button").click(() => todoItem.remove());
+            todoItem.find(".delete-button").click(() => {
+                todoItem.remove();
+                numerateItems();
+            });
 
             todoItem.find(".edit-button").click(() => setEditMode());
         }
 
         function setEditMode() {
-            todoItem.html("<div class='input-group has-validation'>\
-                             <div class='col'>\
+            const number = todoItem.find(".number").text();
+
+            todoItem.html("<th scope='row' class='number align-middle'></th>\
+                          <td class='col has-validation align-middle'>\
                                <input class='form-control edit-todo-item mt-1'>\
                                <div class='invalid-feedback'>\
                                    Строка не должна быть пустой!\
                                </div>\
-                             </div>\
-                             <div class='col-3 text-end'>\
-                                   <button class='btn my-1 btn-success save-button button-width' type='button'>Сохранить</button>\
-                                   <button class='btn my-1 btn-secondary cancel-button button-width' type='button'>Выйти</button>\
-                             </div>\
-                           </div>");
+                          </td>\
+                          <td class='col-3 align-middle'>\
+                              <button class='btn my-1 btn-success save-button button-width' type='button'>Сохранить</button>\
+                              <button class='btn my-1 btn-secondary cancel-button button-width' type='button'>Выйти</button>\
+                          </td>\
+                           ");
+
+            todoItem.find(".number").text(number);
 
             const todoItemInput = todoItem.find(".edit-todo-item");
 
@@ -84,5 +97,19 @@
                 setViewMode();
             }
         }
+
+        numerateItems();
     });
+
+    function numerateItems() {
+        const rowNumberCells = $(".number");
+
+        if (rowNumberCells.length === 0) {
+            return;
+        }
+
+        rowNumberCells.each((index, cell) => {
+            $(cell).text(index + 1);
+        });
+    }
 });
