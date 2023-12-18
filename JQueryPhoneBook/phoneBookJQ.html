@@ -15,48 +15,66 @@
     <div class="form-with-title">
         <form id="add-form" class="form">
             <div class="main-title-text"><h2>JQuery phone book</h2></div>
-            <div id="contact-inputs" class="content-block">
+            <div class="contact-inputs content-block">
                 <div class="label-input-block">
-                    <div>Last name:</div>
-                    <input id="last-name-add-input" class="input-block" maxlength="30" type="text" placeholder="Last name" />
+                    <label class="input-type-label">Last name:</label>
+                    <input id="last-name-add-input"
+                           class="input-block"
+                           maxlength="30"
+                           type="text"
+                           placeholder="Last name" />
                     <div class="non-visible-message">Field is not valid</div>
                 </div>
                 <div class="label-input-block">
-                    <div>First name:</div>
-                    <input id="first-name-add-input" class="input-block" maxlength="30" type="text" placeholder="First name" />
+                    <label class="input-type-label">First name:</label>
+                    <input id="first-name-add-input"
+                           class="input-block"
+                           maxlength="30"
+                           type="text"
+                           placeholder="First name" />
                     <div class="non-visible-message">Field is not valid</div>
                 </div>
                 <div class="label-input-block">
-                    <div>Phone number:</div>
-                    <input id="phone-add-input" maxlength="10" type="text" placeholder="Phone number" />
+                    <label class="input-type-label">Phone number:</label>
+                    <input id="phone-add-input"
+                           maxlength="10"
+                           type="text"
+                           placeholder="Phone number" />
                     <div class="non-visible-message">Field is not valid</div>
                 </div>
                 <div class="content-block">
-                    <button id="add-button" class="ui-button ui-widget ui-corner-all" type="submit">Add contact</button>
+                    <button id="add-button"
+                            class="ui-button ui-widget ui-corner-all"
+                            type="submit">
+                        Add contact
+                    </button>
                 </div>
             </div>
-            <table id="contacts-table" class="main-table">
-                <thead>
-                    <tr>
-                        <th>№</th>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                        <th>Phone number</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="tbody-block"></tbody>
-            </table>
         </form>
-        <div id="dialog-confirm" title="Delete this contact?">
-            <p>
-                <span class="ui-icon ui-icon-alert" style="float: left; margin: 12px 12px 20px 0;"></span>
+
+        <table id="contacts-table" class="main-table">
+            <thead>
+                <tr>
+                    <th class="number">№</th>
+                    <th class="last-name">Last Name</th>
+                    <th class="first-name ">First Name</th>
+                    <th class="phone-number">Phone number</th>
+                    <th class="delete-button"></th>
+                </tr>
+            </thead>
+            <tbody id="tbody-block"></tbody>
+        </table>
+
+        <div class="dialog-confirm" title="Delete this contact?">
+            <p class="dialog-main-text">
+                <span class="ui-icon ui-icon-alert"
+                      style="float: left;
+                             margin: 12px 12px 20px 0;"></span>
                 These contact will be permanently deleted and cannot be recovered. Are you sure?
             </p>
-            <br><br>
-            <p>First name: <span class="first-name-dialog"></span>,</p>
-            <p>Last name: <span class="last-name-dialog"></span>,</p>
-            <p>Phone number: <span class="phone-number-dialog"></span></p>
+            <p>First name: <span></span>,</p>
+            <p>Last name: <span></span>,</p>
+            <p>Phone number: <span></span></p>
         </div>
     </div>
 </body>

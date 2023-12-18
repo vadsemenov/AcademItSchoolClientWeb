@@ -4,6 +4,8 @@
     const tbodyBlock = $("#tbody-block");
     const phoneNumberInput = $("#phone-add-input");
 
+    const numberPattern = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
+
     addButton.click(addContactToTable);
 
     phoneNumberInput.on("input", event => {
@@ -24,25 +26,25 @@
             return;
         }
 
-        const firstName = $("#first-name-add-input");
-        const lastName = $("#last-name-add-input");
-        const phoneNumber = $("#phone-add-input");
+        const firstNameInput = $("#first-name-add-input");
+        const lastNameInput = $("#last-name-add-input");
+        const phoneNumberInput = $("#phone-add-input");
 
         const tableRow = $("<tr class='table-row'></tr>");
 
-        const numberCell = $("<td class='number-cell'></td>").text("Number");
-        const lastNameCell = $("<td class='last-name-cell'></td>").text(lastName.val());
-        const firstNameCell = $("<td class='first-name-cell'></td>").text(firstName.val());
-        const phoneNumberCell = $("<td class='phone-cell'></td>").text(phoneNumber.val());
+        const numberCell = $("<td class='number-cell'></td>");
+        const lastNameCell = $("<td class='last-name-cell'></td>").text(lastNameInput.val());
+        const firstNameCell = $("<td class='first-name-cell'></td>").text(firstNameInput.val());
+        const phoneNumberCell = $("<td class='phone-cell'></td>").text(phoneNumberInput.val());
 
         const deleteRowButton = $("<input class='delete-row-button' type='button' name='delete-contact' value='X' title='Delete this row' />")
             .click(showDeleteDialog);
 
         deleteRowButton.hover(event => {
-            $(event.target).css('cursor', 'pointer');
+            $(event.target).addClass("button-hover-hand");
         });
 
-        const buttonCell = $("<td></td>").append(deleteRowButton);
+        const buttonCell = $("<td class='delete-button'></td>").append(deleteRowButton);
 
         tableRow.append(numberCell);
         tableRow.append(lastNameCell);
@@ -54,9 +56,9 @@
 
         numerateContacts();
 
-        firstName.val("");
-        lastName.val("");
-        phoneNumber.val("");
+        firstNameInput.val("");
+        lastNameInput.val("");
+        phoneNumberInput.val("");
     }
 
     function showDeleteDialog(event) {
@@ -66,7 +68,7 @@
         const firstName = rowForDelete.find(".first-name-cell").text();
         const phoneNumber = rowForDelete.find(".phone-cell").text();
 
-        const dialog = $("#dialog-confirm");
+        const dialog = $(".dialog-confirm");
 
         dialog.find(".first-name-dialog").text(firstName);
         dialog.find(".last-name-dialog").text(lastName);
@@ -112,21 +114,24 @@
 
     function validateInputText() {
         const namesInputs = $(".input-block");
-        let allInputsIsValid = true;
+        let areAllInputsIsValid = true;
 
         namesInputs.each((index, nameInput) => {
             const input = $(nameInput);
             const errorText = input.next();
             const inputText = $(nameInput).val();
 
-            if (!validateText(inputText)) {
-                input.css('border-color', '#f00');
+            const validateText = getValidateMessage(inputText);
 
+            if (validateText.length !== 0) {
+                input.addClass("input-invalid");
+
+                errorText.text(validateText);
                 errorText.show();
 
-                allInputsIsValid = false;
+                areAllInputsIsValid = false;
             } else {
-                input.css('border-color', '#000');
+                input.removeClass("input-invalid");
 
                 errorText.hide();
             }
@@ -135,33 +140,45 @@
         const phoneText = phoneNumberInput.val();
         const phoneErrorText = phoneNumberInput.next();
 
-        if (!validateText(phoneText) || !validatePhoneNumber(phoneText)) {
-            phoneNumberInput.css('border-color', '#f00');
+        const phoneNumberValidateText = getPhoneNumberValidateMessage(phoneText);
 
+        if (phoneNumberValidateText.length !== 0) {
+            phoneNumberInput.addClass("input-invalid");
+
+            phoneErrorText.text(phoneNumberValidateText);
             phoneErrorText.show();
 
-            allInputsIsValid = false;
+            areAllInputsIsValid = false;
         } else {
-            phoneNumberInput.css('border-color', '#000');
+            phoneNumberInput.removeClass("input-invalid");
 
             phoneErrorText.hide();
         }
 
-        return allInputsIsValid;
+        return areAllInputsIsValid;
     }
 
-    function validateText(text) {
-        if (text.trim().length === 0 || /\s/.test(text.trim())) {
-            return false;
+    function getValidateMessage(text) {
+        if (text.trim().length === 0) {
+            return"The text input is empty";
         }
 
-        return true;
+        if (/\s/.test(text.trim())) {
+            return "The text is contains spaces!";
+        }
+
+        return "";
     }
 
-    function validatePhoneNumber(text) {
-        const numberPattern = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
-        const isPhoneNumber = numberPattern.test(text);
+    function getPhoneNumberValidateMessage(text) {
+        if (text.trim().length === 0) {
+            return "The text input is empty";
+        }
 
-        return isPhoneNumber;
+        if (!numberPattern.test(text)) {
+            return "The phone number is not valid";
+        }
+
+        return "";
     }
 });

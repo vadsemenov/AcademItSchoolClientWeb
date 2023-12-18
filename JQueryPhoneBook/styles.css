@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-#contact-inputs {
+.contact-inputs {
     background: #EEE;
     border: 1px solid #676576;
     padding: 0 10px 10px;
@@ -32,6 +32,10 @@
     margin: 10px 0;
 }
 
+.input-type-label {
+    display: block;
+}
+
 .form {
     display: block;
     margin: auto;
@@ -39,10 +43,10 @@
 
 .non-visible-message {
     display: none;
-    color: #f00;
+    color: #F00;
 }
 
-#dialog-confirm {
+.dialog-confirm {
     display: none;
 }
 
@@ -76,6 +80,39 @@
         background: #EEE;
     }
 
+.number {
+    width: 2%;
+}
+
+.last-name {
+    width: 30%;
+}
+
+.first-name {
+    width: 30%;
+}
+
+.phone-number {
+    width: 30%;
+}
+
+.delete-button {
+    width: 8%;
+    text-align: center;
+}
+
 .number-cell {
     text-align: center;
+}
+
+.dialog-main-text {
+    margin-bottom: 20px;
+}
+
+.button-hover-hand {
+    cursor: pointer;
+}
+
+.input-invalid {
+    border-color: #F00;
 }
