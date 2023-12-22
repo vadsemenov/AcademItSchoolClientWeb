@@ -11,19 +11,21 @@
     methods: {
         addItem() {
             const value = this.newTodoText.trim();
-            this.isNewItemInvalid = value.length === 0;
+            this.isNewItemInvalid = value.trim().length === 0;
 
             if (this.isNewItemInvalid) {
                 return;
             }
 
-            this.items.push({
+            const todoItem = {
                 id: this.itemId,
-                text: value,
+                text: value.trim(),
                 isEditing: false,
                 isInvalid: false,
-                editText: ""
-            });
+                editedText: ""
+            }
+
+            this.items.push(todoItem);
 
             this.itemId++;
 
@@ -31,22 +33,22 @@
         },
 
         deleteItem(item) {
-            this.items = this.items.filter(i => i !== item);
+            this.items = this.items.filter(e => e.id !== item.id);
         },
 
         modifyItem(item) {
             item.isEditing = true;
-            item.editText = item.text;
+            item.editedText = item.text;
         },
 
         saveItem(item) {
-            if (item.editText.trim().length === 0) {
+            if (item.editedText.trim().length === 0) {
                 item.isInvalid = true;
 
                 return;
             }
 
-            item.text = item.editText;
+            item.text = item.editedText;
             item.isInvalid = false;
             item.isEditing = false;
         },
