@@ -141,61 +141,45 @@
             <div class="modal" ref="editContactModalDialog" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header text-center">
                             <div class="h1 fs-4">Edit contact in phone book</div>
                         </div>
                         <div class="modal-body py-1">
-                            <!-- <div class="list-group-item text-break my-1"> -->
-                            <!--     <div> -->
-                            <!--         Last name: <span v-text="contactToDelete.lastName"></span> -->
-                            <!--     </div> -->
-                            <!--     <div> -->
-                            <!--         First name: <span v-text="contactToDelete.firstName"></span> -->
-                            <!--     </div> -->
-                            <!--     <div> -->
-                            <!--         Phone number: <span v-text="contactToDelete.phoneNumber"></span> -->
-                            <!--     </div> -->
-                            <!-- </div> -->
-                            
-
-                            <!-- <div class="input-group has-validation d-inline-block my-2"> -->
-                            <!--     <label class="d-block">Last name:</label> -->
-                            <!--     <div class="input-group has-validation row"> -->
-                            <!--         <input v-model.trim="lastName" -->
-                            <!--                ref="lastNameEditInput" -->
-                            <!--                :class="{'is-invalid': isLastNameInvalid}" -->
-                            <!--                class="form-control" -->
-                            <!--                maxlength="30" -->
-                            <!--                type="text" -->
-                            <!--                placeholder="Last name" /> -->
-                            <!--         <div class="invalid-feedback text-center">Field is not valid</div> -->
-                            <!--     </div> -->
-                            <!-- </div> -->
-                            <!-- <div class="input-group has-validation d-inline-block my-2"> -->
-                            <!--     <label class="d-block">First name:</label> -->
-                            <!--     <div class="input-group has-validation row"> -->
-                            <!--         <input v-model.trim="firstName" -->
-                            <!--                ref="firstNameEditInput" -->
-                            <!--                :class="{'is-invalid': isFirstNameInvalid}" -->
-                            <!--                class="form-control" -->
-                            <!--                maxlength="30" -->
-                            <!--                type="text" -->
-                            <!--                placeholder="First name" /> -->
-                            <!--         <div class="invalid-feedback text-center">Field is not valid</div> -->
-                            <!--     </div> -->
-                            <!-- </div> -->
-                            <!-- <div class="input-group has-validation d-inline-block my-2"> -->
-                            <!--     <label class="d-block">Phone number:</label> -->
-                            <!--     <div class="input-group has-validation row"> -->
-                            <!--         <input v-model.trim="phoneNumber" -->
-                            <!--                ref="phoneNumberEditInput" -->
-                            <!--                :class="{'is-invalid': isPhoneNumberInvalid}" -->
-                            <!--                class="form-control" -->
-                            <!--                maxlength="30" type="text" -->
-                            <!--                placeholder="Phone number" /> -->
-                            <!--         <div class="invalid-feedback text-center">Phone number must contains digits</div> -->
-                            <!--     </div> -->
-                            <!-- </div> -->
+                            <div class="input-group has-validation d-inline-block my-2">
+                                <label class="d-block">Last name:</label>
+                                <div class="input-group has-validation row">
+                                    <input v-model.trim="editedLastName"
+                                           :class="{'is-invalid': isEditedLastNameInvalid}"
+                                           class="form-control"
+                                           maxlength="30"
+                                           type="text"
+                                           placeholder="Last name" />
+                                    <div class="invalid-feedback text-center">Field is not valid</div>
+                                </div>
+                            </div>
+                            <div class="input-group has-validation d-inline-block my-2">
+                                <label class="d-block">First name:</label>
+                                <div class="input-group has-validation row">
+                                    <input v-model.trim="editedFirstName"
+                                           :class="{'is-invalid': isEditedFirstNameInvalid}"
+                                           class="form-control"
+                                           maxlength="30"
+                                           type="text"
+                                           placeholder="First name" />
+                                    <div class="invalid-feedback text-center">Field is not valid</div>
+                                </div>
+                            </div>
+                            <div class="input-group has-validation d-inline-block my-2">
+                                <label class="d-block">Phone number:</label>
+                                <div class="input-group has-validation row">
+                                    <input v-model.trim="editedPhoneNumber"
+                                           :class="{'is-invalid': isEditedPhoneNumberInvalid}"
+                                           class="form-control"
+                                           maxlength="30" type="text"
+                                           placeholder="Phone number" />
+                                    <div class="invalid-feedback text-center">Phone number must contains digits</div>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="modal-footer">
@@ -203,10 +187,9 @@
                                 <button type="button"
                                         class="pb-2 px-2 btn btn-primary rounded-0 rounded-start"
                                         name="delete_row"
-                                        @click="deleteContact">
+                                        @click="saveEditedContact(contactToEdit.id)">
                                     Save
                                 </button>
-
                                 <button type="button"
                                         class="pb-2 px-2 btn btn-secondary rounded-0 rounded-end"
                                         name="cancel"

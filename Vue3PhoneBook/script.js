@@ -2,14 +2,27 @@
     data() {
         return {
             contacts: [],
+
             isLastNameInvalid: false,
             isFirstNameInvalid: false,
             isPhoneNumberInvalid: false,
+
             lastName: "",
             firstName: "",
             phoneNumber: "",
+
+            isEditedLastNameInvalid: false,
+            isEditedFirstNameInvalid: false,
+            isEditedPhoneNumberInvalid: false,
+
+            editedLastName: "",
+            editedFirstName: "",
+            editedPhoneNumber: "",
+
             contactId: 1,
+
             phoneNumberPattern: /^([+]?[0-9\s-\(\)]{3,25})*$/i,
+
             editModalDialog: null,
             deleteModalDialog: null,
             contactToDelete: "",
@@ -23,7 +36,6 @@
         this.deleteModalDialog = new bootstrap.Modal(this.$refs.deleteContactModalDialog);
         this.editModalDialog = new bootstrap.Modal(this.$refs.editContactModalDialog);
     },
-
 
     methods: {
         setFocusToLastName: function () {
@@ -43,6 +55,14 @@
         showEditContactModalDialog(contact) {
             this.contactToEdit = contact;
 
+            this.editedLastName = contact.lastName;
+            this.editedFirstName = contact.firstName;
+            this.editedPhoneNumber = contact.phoneNumber;
+
+            this.isEditedLastNameInvalid = false;
+            this.isEditedFirstNameInvalid = false;
+            this.isEditedPhoneNumberInvalid = false;
+
             this.editModalDialog.show();
         },
 
@@ -50,8 +70,59 @@
             this.editModalDialog.hide();
         },
 
+        saveEditedContact(index) {
+            if (!this.validateEditedFields()) {
+                return;
+            }
+
+            this.hideEditContactModalDialog();
+
+            this.contacts.map((c) => {
+                if (c.id === index) {
+                    c.firstName = this.editedFirstName;
+                    c.lastName = this.editedLastName;
+                    c.phoneNumber = this.editedPhoneNumber;
+                }
+            });
+
+            this.isEditedLastNameInvalid = false;
+            this.isEditedFirstNameInvalid = false;
+            this.isEditedPhoneNumberInvalid = false;
+
+            this.editedLastName = "";
+            this.editedFirstName = "";
+            this.editedPhoneNumber = "";
+        },
+
+        validateEditedFields() {
+            let areAllFieldsValid = true;
+
+            if (!this.validateText(this.editedLastName)) {
+                areAllFieldsValid = false;
+                this.isEditedLastNameInvalid = true;
+            } else {
+                this.isEditedLastNameInvalid = false;
+            }
+
+            if (!this.validateText(this.editedFirstName)) {
+                areAllFieldsValid = false;
+                this.isEditedFirstNameInvalid = true;
+            } else {
+                this.isEditedFirstNameInvalid = false;
+            }
+
+            if (!this.validatePhoneNumber(this.editedPhoneNumber)) {
+                areAllFieldsValid = false;
+                this.isEditedPhoneNumberInvalid = true;
+            } else {
+                this.isEditedPhoneNumberInvalid = false;
+            }
+
+            return areAllFieldsValid;
+        },
+
         addContact() {
-            if (!this.validateAllFields()) {
+            if (!this.validateAddFields()) {
                 return;
             }
 
@@ -75,7 +146,7 @@
             this.phoneNumber = "";
         },
 
-        validateAllFields() {
+        validateAddFields() {
             let areAllFieldsValid = true;
 
             if (!this.validateText(this.lastName)) {
