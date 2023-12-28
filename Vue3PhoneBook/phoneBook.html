@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
     <script defer src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="node_modules/vue/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -17,7 +18,8 @@
                 <div class="input-group has-validation d-inline-block my-2">
                     <label class="d-block">Last name:</label>
                     <div class="input-group has-validation row">
-                        <input v-model="lastName"
+                        <input v-model.trim="lastName"
+                               ref="lastName"
                                :class="{'is-invalid': isLastNameInvalid}"
                                class="form-control"
                                maxlength="30"
@@ -29,7 +31,7 @@
                 <div class="input-group has-validation d-inline-block my-2">
                     <label class="d-block">First name:</label>
                     <div class="input-group has-validation row">
-                        <input v-model="firstName"
+                        <input v-model.trim="firstName"
                                :class="{'is-invalid': isFirstNameInvalid}"
                                class="form-control"
                                maxlength="30"
@@ -41,7 +43,7 @@
                 <div class="input-group has-validation d-inline-block my-2">
                     <label class="d-block">Phone number:</label>
                     <div class="input-group has-validation row">
-                        <input v-model="phoneNumber"
+                        <input v-model.trim="phoneNumber"
                                :class="{'is-invalid': isPhoneNumberInvalid}"
                                class="form-control"
                                maxlength="30" type="text"
@@ -66,19 +68,157 @@
                             <th scope="col">First Name</th>
                             <th scope="col">Phone number</th>
                             <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody v-cloak>
                         <tr v-for="(contact, index) in contacts" :key="contact.id">
-                            <th scope="row" v-text="index+1"></th>
-                            <td v-text="contact.lastName"></td>
-                            <td v-text="contact.firstName"></td>
-                            <td v-text="contact.phoneNumber"></td>
-                            <td><button class="btn" @click="deleteContact(index)" type="button" name="delete-contact" title="Delete this row">X</button></td>
+                            <th scope="row" class="align-middle" v-text="index + 1"></th>
+                            <td v-text="contact.lastName" class="align-middle"></td>
+                            <td v-text="contact.firstName" class="align-middle"></td>
+                            <td v-text="contact.phoneNumber" class="align-middle"></td>
+                            <td class="align-middle">
+                                <button type="button"
+                                        class="btn btn-success"
+                                        title="Edit this contact"
+                                        @click="showEditContactModalDialog(contact)">
+                                    Edit contact
+                                </button>
+                            </td>
+                            <td class="align-middle">
+                                <button type="button"
+                                        class="btn btn-danger"
+                                        title="Delete this contact"
+                                        @click="showDeleteContactModalDialog(contact)">
+                                    Х
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <div class="modal" ref="deleteContactModalDialog" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="h1 fs-4">Delete this contact from the phone book?</div>
+                        </div>
+                        <div class="modal-body py-1">
+                            <div class="list-group-item text-break my-1">
+                                <div>
+                                    Last name: <span v-text="contactToDelete.lastName"></span>
+                                </div>
+                                <div>
+                                    First name: <span v-text="contactToDelete.firstName"></span>
+                                </div>
+                                <div>
+                                    Phone number: <span v-text="contactToDelete.phoneNumber"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group w-100" role="group">
+                                <button type="button"
+                                        class="pb-2 px-2 btn btn-primary rounded-0 rounded-start"
+                                        name="delete_row"
+                                        @click="deleteContact">
+                                    Delete
+                                </button>
+
+                                <button type="button"
+                                        class="pb-2 px-2 btn btn-secondary rounded-0 rounded-end"
+                                        name="cancel"
+                                        @click="deleteModalDialog.hide()">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" ref="editContactModalDialog" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="h1 fs-4">Edit contact in phone book</div>
+                        </div>
+                        <div class="modal-body py-1">
+                            <!-- <div class="list-group-item text-break my-1"> -->
+                            <!--     <div> -->
+                            <!--         Last name: <span v-text="contactToDelete.lastName"></span> -->
+                            <!--     </div> -->
+                            <!--     <div> -->
+                            <!--         First name: <span v-text="contactToDelete.firstName"></span> -->
+                            <!--     </div> -->
+                            <!--     <div> -->
+                            <!--         Phone number: <span v-text="contactToDelete.phoneNumber"></span> -->
+                            <!--     </div> -->
+                            <!-- </div> -->
+                            
+
+                            <!-- <div class="input-group has-validation d-inline-block my-2"> -->
+                            <!--     <label class="d-block">Last name:</label> -->
+                            <!--     <div class="input-group has-validation row"> -->
+                            <!--         <input v-model.trim="lastName" -->
+                            <!--                ref="lastNameEditInput" -->
+                            <!--                :class="{'is-invalid': isLastNameInvalid}" -->
+                            <!--                class="form-control" -->
+                            <!--                maxlength="30" -->
+                            <!--                type="text" -->
+                            <!--                placeholder="Last name" /> -->
+                            <!--         <div class="invalid-feedback text-center">Field is not valid</div> -->
+                            <!--     </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="input-group has-validation d-inline-block my-2"> -->
+                            <!--     <label class="d-block">First name:</label> -->
+                            <!--     <div class="input-group has-validation row"> -->
+                            <!--         <input v-model.trim="firstName" -->
+                            <!--                ref="firstNameEditInput" -->
+                            <!--                :class="{'is-invalid': isFirstNameInvalid}" -->
+                            <!--                class="form-control" -->
+                            <!--                maxlength="30" -->
+                            <!--                type="text" -->
+                            <!--                placeholder="First name" /> -->
+                            <!--         <div class="invalid-feedback text-center">Field is not valid</div> -->
+                            <!--     </div> -->
+                            <!-- </div> -->
+                            <!-- <div class="input-group has-validation d-inline-block my-2"> -->
+                            <!--     <label class="d-block">Phone number:</label> -->
+                            <!--     <div class="input-group has-validation row"> -->
+                            <!--         <input v-model.trim="phoneNumber" -->
+                            <!--                ref="phoneNumberEditInput" -->
+                            <!--                :class="{'is-invalid': isPhoneNumberInvalid}" -->
+                            <!--                class="form-control" -->
+                            <!--                maxlength="30" type="text" -->
+                            <!--                placeholder="Phone number" /> -->
+                            <!--         <div class="invalid-feedback text-center">Phone number must contains digits</div> -->
+                            <!--     </div> -->
+                            <!-- </div> -->
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="btn-group w-100" role="group">
+                                <button type="button"
+                                        class="pb-2 px-2 btn btn-primary rounded-0 rounded-start"
+                                        name="delete_row"
+                                        @click="deleteContact">
+                                    Save
+                                </button>
+
+                                <button type="button"
+                                        class="pb-2 px-2 btn btn-secondary rounded-0 rounded-end"
+                                        name="cancel"
+                                        @click="editModalDialog.hide()">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </form>
     </div>
 </body>
