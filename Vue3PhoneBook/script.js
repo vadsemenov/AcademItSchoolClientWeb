@@ -70,7 +70,7 @@
             this.editModalDialog.hide();
         },
 
-        saveEditedContact(index) {
+        saveEditedContact(id) {
             if (!this.validateEditedFields()) {
                 return;
             }
@@ -78,7 +78,7 @@
             this.hideEditContactModalDialog();
 
             this.contacts.map((c) => {
-                if (c.id === index) {
+                if (c.id === id) {
                     c.firstName = this.editedFirstName;
                     c.lastName = this.editedLastName;
                     c.phoneNumber = this.editedPhoneNumber;
