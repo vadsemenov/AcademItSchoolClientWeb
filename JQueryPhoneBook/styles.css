@@ -46,8 +46,16 @@
     color: #F00;
 }
 
-.dialog-confirm {
+.confirm-dialog {
     display: none;
+}
+
+.edit-dialog {
+    display: none;
+}
+
+.dialog-first-block {
+    margin-top: 30px;
 }
 
 .delete-row-button {
@@ -85,15 +93,20 @@
 }
 
 .last-name {
-    width: 30%;
+    width: 25%;
 }
 
 .first-name {
-    width: 30%;
+    width: 25%;
 }
 
 .phone-number {
-    width: 30%;
+    width: 25%;
+}
+
+.edit-button {
+    width: 15%;
+    text-align: center;
 }
 
 .delete-button {

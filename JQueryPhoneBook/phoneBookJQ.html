@@ -19,7 +19,7 @@
                 <div class="label-input-block">
                     <label class="input-type-label">Last name:</label>
                     <input id="last-name-add-input"
-                           class="input-block"
+                           class="add-input-block"
                            maxlength="30"
                            type="text"
                            placeholder="Last name" />
@@ -28,7 +28,7 @@
                 <div class="label-input-block">
                     <label class="input-type-label">First name:</label>
                     <input id="first-name-add-input"
-                           class="input-block"
+                           class="add-input-block"
                            maxlength="30"
                            type="text"
                            placeholder="First name" />
@@ -59,22 +59,58 @@
                     <th class="last-name">Last Name</th>
                     <th class="first-name ">First Name</th>
                     <th class="phone-number">Phone number</th>
+                    <th class="edit-button"></th>
                     <th class="delete-button"></th>
                 </tr>
             </thead>
             <tbody id="tbody-block"></tbody>
         </table>
 
-        <div class="dialog-confirm" title="Delete this contact?">
+        <div class="edit-dialog" title="Edit contact">
+            <p class="dialog-main-text">
+                <span class="ui-icon ui-icon-alert"
+                      style="float: left;
+                             margin: 12px 12px 10px 0;"></span>
+                Edit contact:
+            </p>
+            <div class="label-input-block dialog-first-block">
+                <label class="input-type-label">Last name:</label>
+                <input id="last-name-edit-input"
+                       class="edit-input-block"
+                       maxlength="30"
+                       type="text"
+                       placeholder="Last name" />
+                <div class="non-visible-message">Field is not valid</div>
+            </div>
+            <div class="label-input-block">
+                <label class="input-type-label">First name:</label>
+                <input id="first-name-edit-input"
+                       class="edit-input-block"
+                       maxlength="30"
+                       type="text"
+                       placeholder="First name" />
+                <div class="non-visible-message">Field is not valid</div>
+            </div>
+            <div class="label-input-block">
+                <label class="input-type-label">Phone number:</label>
+                <input id="phone-edit-input"
+                       maxlength="10"
+                       type="text"
+                       placeholder="Phone number" />
+                <div class="non-visible-message">Field is not valid</div>
+            </div>
+        </div>
+
+        <div class="confirm-dialog" title="Delete this contact?">
             <p class="dialog-main-text">
                 <span class="ui-icon ui-icon-alert"
                       style="float: left;
                              margin: 12px 12px 20px 0;"></span>
                 These contact will be permanently deleted and cannot be recovered. Are you sure?
             </p>
-            <p>First name: <span></span>,</p>
-            <p>Last name: <span></span>,</p>
-            <p>Phone number: <span></span></p>
+            <p>First name: <span class="first-name-dialog"></span>,</p>
+            <p>Last name: <span class="last-name-dialog"></span>,</p>
+            <p>Phone number: <span class="phone-number-dialog"></span></p>
         </div>
     </div>
 </body>
