@@ -20,7 +20,7 @@
                 <div class="input-group has-validation row">
                     <input id="new-todo-text"
                            :class="{'is-invalid': isNewItemInvalid}"
-                           v-model="newTodoText"
+                           v-model.trim="newTodoText"
                            class="form-control"
                            type="text"
                            placeholder="Текст" />
@@ -31,17 +31,15 @@
             </div>
             <button id="add-button"
                     @click="addItem"
-                    class="btn btn-primary my-1"
+                    class="btn btn-primary my-3"
                     type="submit">
                 Добавить
             </button>
         </form>
-
         <div class="table-responsive mt-1">
             <table class="table table-bordered table-hover">
                 <tbody>
                     <tr v-for="(item, index) in items" :key="item.Id">
-
                         <template v-if="!item.isEditing">
                             <th scope="row" class="col-1 align-middle" v-text="index+1"></th>
                             <td class="px-1 align-middle text-start text-break"
@@ -64,7 +62,8 @@
                             <td class="col has-validation align-middle">
                                 <input class="form-control edit-todo-item mt-1"
                                        :class="{'is-invalid': item.isInvalid}"
-                                       v-model="item.editedText">
+                                       v-model.trim="item.editedText"
+                                       v-on:keyup.enter="saveItem(item)">
                                 <div class="invalid-feedback">
                                     Строка не должна быть пустой!
                                 </div>
@@ -82,12 +81,10 @@
                                 </button>
                             </td>
                         </template>
-
                     </tr>
                 </tbody>
             </table>
         </div>
-
     </div>
 </body>
 </html>

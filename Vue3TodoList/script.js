@@ -4,22 +4,22 @@
             items: [],
             newTodoText: "",
             isNewItemInvalid: false,
-            itemId: 1
-        }
+            newItemId: 1
+        };
     },
 
     methods: {
         addItem() {
-            const value = this.newTodoText.trim();
-            this.isNewItemInvalid = value.trim().length === 0;
+            const text = this.newTodoText.trim();
+            this.isNewItemInvalid = text.trim().length === 0;
 
             if (this.isNewItemInvalid) {
                 return;
             }
 
             const todoItem = {
-                id: this.itemId,
-                text: value.trim(),
+                id: this.newItemId,
+                text: text.trim(),
                 isEditing: false,
                 isInvalid: false,
                 editedText: ""
@@ -27,7 +27,7 @@
 
             this.items.push(todoItem);
 
-            this.itemId++;
+            this.newItemId++;
 
             this.newTodoText = "";
         },
@@ -58,6 +58,6 @@
             item.isEditing = false;
         }
     }
-}
+};
 
-Vue.createApp(Vue3TodoList).mount('#app');
+Vue.createApp(Vue3TodoList).mount("#app");
