@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .form-with-title {
     display: flex;
     flex-direction: column;
@@ -58,13 +62,6 @@
     margin-top: 30px;
 }
 
-.delete-row-button {
-    border-width: 0;
-    border-color: transparent;
-    background: transparent;
-    background-color: transparent;
-}
-
 .main-table {
     border-collapse: collapse;
     background: #FFF;
@@ -104,14 +101,14 @@
     width: 25%;
 }
 
-.edit-button {
-    width: 15%;
-    text-align: center;
+.edit-row-button {
+    margin: 0 5px 5px 0; 
 }
 
-.delete-button {
-    width: 8%;
+.buttons-block {
+    width: 15%;
     text-align: center;
+    vertical-align: middle;
 }
 
 .number-cell {
@@ -128,4 +125,14 @@
 
 .input-invalid {
     border-color: #F00;
+}
+
+.edit-dialog-icon-style {
+    float: left;
+    margin: 0 12px 10px 0;
+}
+
+.delete-dialog-icon-style {
+    float: left;
+    margin: 6px 12px 10px 0;
 }

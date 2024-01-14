@@ -4,6 +4,10 @@
     const tbodyBlock = $("#tbody-block");
     const addPhoneNumberInput = $("#phone-add-input");
 
+    const firstNameInput = $("#first-name-add-input");
+    const lastNameInput = $("#last-name-add-input");
+    const phoneNumberInput = $("#phone-add-input");
+
     const phoneNumberPattern = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
 
     addButton.click(addContactToTable);
@@ -26,10 +30,6 @@
             return;
         }
 
-        const firstNameInput = $("#first-name-add-input");
-        const lastNameInput = $("#last-name-add-input");
-        const phoneNumberInput = $("#phone-add-input");
-
         const tableRow = $("<tr class='table-row'></tr>");
 
         const numberCell = $("<td class='number-cell'></td>");
@@ -37,29 +37,19 @@
         const firstNameCell = $("<td class='first-name-cell'></td>").text(firstNameInput.val());
         const phoneNumberCell = $("<td class='phone-cell'></td>").text(phoneNumberInput.val());
 
-        const deleteRowButton = $("<input class='delete-row-button' type='button' name='delete-contact' value='X' title='Delete this row' />")
+        const deleteRowButton = $("<input class='delete-row-button button-hover-hand' type='button' name='delete-contact' value='Delete contact' title='Delete this row' />")
             .click(showDeleteDialog);
 
-        const editRowButton = $("<input class='edit-row-button' type='button' name='edit-contact' value='Edit contact' title='Edit this contact' />")
+        const editRowButton = $("<input class='edit-row-button button-hover-hand' type='button' name='edit-contact' value='Edit contact' title='Edit this contact' />")
             .click(showEditDialog);
 
-        deleteRowButton.hover(event => {
-            $(event.target).addClass("button-hover-hand");
-        });
-
-        editRowButton.hover(event => {
-            $(event.target).addClass("button-hover-hand");
-        });
-
-        const deleteButtonCell = $("<td class='delete-button'></td>").append(deleteRowButton);
-        const editButtonCell = $("<td class='edit-button'></td>").append(editRowButton);
+        const buttonsCell = $("<td class='buttons-block'></td>").append(editRowButton).append(deleteRowButton);
 
         tableRow.append(numberCell);
         tableRow.append(lastNameCell);
         tableRow.append(firstNameCell);
         tableRow.append(phoneNumberCell);
-        tableRow.append(editButtonCell);
-        tableRow.append(deleteButtonCell);
+        tableRow.append(buttonsCell);
 
         tbodyBlock.append(tableRow);
 
@@ -192,7 +182,7 @@
         const phoneText = phoneNumberInput.val();
         const phoneErrorText = phoneNumberInput.next();
 
-        const phoneNumberValidateText = getPhoneNumberValidateMessage(phoneText);
+        const phoneNumberValidateText = getPhoneNumberValidationMessage(phoneText);
 
         if (phoneNumberValidateText.length !== 0) {
             phoneNumberInput.addClass("input-invalid");
@@ -211,14 +201,14 @@
     }
 
     function validateNamesInputs(namesInputs) {
-        let areAllInputsIsValid = true;
+        let areAllInputsValid = true;
 
         namesInputs.each((index, nameInput) => {
             const input = $(nameInput);
             const errorText = input.next();
             const inputText = $(nameInput).val();
 
-            const validateText = getValidateMessage(inputText);
+            const validateText = getValidationMessage(inputText);
 
             if (validateText.length !== 0) {
                 input.addClass("input-invalid");
@@ -226,7 +216,7 @@
                 errorText.text(validateText);
                 errorText.show();
 
-                areAllInputsIsValid = false;
+                areAllInputsValid = false;
             } else {
                 input.removeClass("input-invalid");
 
@@ -234,11 +224,11 @@
             }
         });
 
-        return areAllInputsIsValid;
+        return areAllInputsValid;
     }
 
 
-    function getValidateMessage(text) {
+    function getValidationMessage(text) {
         if (text.trim().length === 0) {
             return "The text input is empty";
         }
@@ -250,7 +240,7 @@
         return "";
     }
 
-    function getPhoneNumberValidateMessage(text) {
+    function getPhoneNumberValidationMessage(text) {
         if (text.trim().length === 0) {
             return "The text input is empty";
         }
