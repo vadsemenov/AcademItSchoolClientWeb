@@ -17,7 +17,7 @@
             <div class="input-group has-validation">
                 <label for="new-todo-text"
                        class="form-label">Введите текст:</label>
-                <div class="input-group has-validation row">
+                <div class="input-group has-validation">
                     <input id="new-todo-text"
                            :class="{'is-invalid': isNewItemInvalid}"
                            v-model.trim="newTodoText"
@@ -38,13 +38,20 @@
         </form>
         <div class="table-responsive mt-1">
             <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="border-0">
+                        <th class="col-1 p-0"/>
+                        <th class="p-0"/>
+                        <th class="col-3 p-0"/>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr v-for="(item, index) in items" :key="item.Id">
+                    <tr v-for="(item, index) in items" :key="item.id">
                         <template v-if="!item.isEditing">
-                            <th scope="row" class="col-1 align-middle" v-text="index+1"></th>
+                            <th scope="row" class="align-middle" v-text="index + 1"></th>
                             <td class="px-1 align-middle text-start text-break"
                                 v-text="item.text"></td>
-                            <td class="col-3 align-middle">
+                            <td class="align-middle">
                                 <button @click="modifyItem(item)"
                                         class="btn my-1 mx-1 btn-success"
                                         type="button">
@@ -58,17 +65,17 @@
                             </td>
                         </template>
                         <template v-else>
-                            <th scope="row" class="align-middle" v-text="index+1"></th>
-                            <td class="col has-validation align-middle">
+                            <th scope="row" class="align-middle" v-text="index + 1"></th>
+                            <td class="has-validation align-middle">
                                 <input class="form-control edit-todo-item mt-1"
                                        :class="{'is-invalid': item.isInvalid}"
                                        v-model.trim="item.editedText"
-                                       v-on:keyup.enter="saveItem(item)">
+                                       @keyup.enter="saveItem(item)">
                                 <div class="invalid-feedback">
                                     Строка не должна быть пустой!
                                 </div>
                             </td>
-                            <td class="col-3 align-middle">
+                            <td class="align-middle">
                                 <button @click="saveItem(item)"
                                         class="btn my-1 mx-1 btn-success"
                                         type="button">

@@ -10,8 +10,8 @@
 
     methods: {
         addItem() {
-            const text = this.newTodoText.trim();
-            this.isNewItemInvalid = text.trim().length === 0;
+            const text = this.newTodoText;
+            this.isNewItemInvalid = text.length === 0;
 
             if (this.isNewItemInvalid) {
                 return;
@@ -19,11 +19,11 @@
 
             const todoItem = {
                 id: this.newItemId,
-                text: text.trim(),
+                text: text,
                 isEditing: false,
                 isInvalid: false,
                 editedText: ""
-            }
+            };
 
             this.items.push(todoItem);
 
@@ -42,7 +42,7 @@
         },
 
         saveItem(item) {
-            if (item.editedText.trim().length === 0) {
+            if (item.editedText.length === 0) {
                 item.isInvalid = true;
 
                 return;
