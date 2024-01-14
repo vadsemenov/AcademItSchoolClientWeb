@@ -68,7 +68,6 @@
                             <th scope="col">First Name</th>
                             <th scope="col">Phone number</th>
                             <th scope="col"></th>
-                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody v-cloak>
@@ -78,27 +77,27 @@
                             <td v-text="contact.firstName" class="align-middle"></td>
                             <td v-text="contact.phoneNumber" class="align-middle"></td>
                             <td class="align-middle">
-                                <button type="button"
-                                        class="btn btn-success"
-                                        title="Edit this contact"
-                                        @click="showEditContactModalDialog(contact)">
-                                    Edit contact
-                                </button>
-                            </td>
-                            <td class="align-middle">
-                                <button type="button"
-                                        class="btn btn-danger"
-                                        title="Delete this contact"
-                                        @click="showDeleteContactModalDialog(contact)">
-                                    Х
-                                </button>
+                                <div class="btn-group" role="group">
+                                    <button type="button"
+                                            class="btn btn-success"
+                                            title="Edit this contact"
+                                            @click="showEditContactModalDialog(contact)">
+                                        Edit contact
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-danger"
+                                            title="Delete this contact"
+                                            @click="showDeleteContactModalDialog(contact)">
+                                        Delete contact
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="modal" ref="deleteContactModalDialog" tabindex="-1">
+            <div class="modal fade" ref="deleteContactModalDialog" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -138,7 +137,7 @@
                 </div>
             </div>
 
-            <div class="modal" ref="editContactModalDialog" tabindex="-1">
+            <div class="modal fade" ref="editContactModalDialog" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header text-center">

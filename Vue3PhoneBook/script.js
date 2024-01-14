@@ -38,7 +38,7 @@
     },
 
     methods: {
-        setFocusToLastName: function () {
+        setFocusToLastName() {
             this.$refs.lastName.focus();
         },
 
@@ -77,13 +77,10 @@
 
             this.hideEditContactModalDialog();
 
-            this.contacts.map((c) => {
-                if (c.id === id) {
-                    c.firstName = this.editedFirstName;
-                    c.lastName = this.editedLastName;
-                    c.phoneNumber = this.editedPhoneNumber;
-                }
-            });
+            const contactToSave = this.contacts.find(contact => contact.id === id);
+            contactToSave.firstName = this.editedFirstName;
+            contactToSave.lastName = this.editedLastName;
+            contactToSave.phoneNumber = this.editedPhoneNumber;
 
             this.isEditedLastNameInvalid = false;
             this.isEditedFirstNameInvalid = false;
