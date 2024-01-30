@@ -6,7 +6,6 @@
 
     const firstNameInput = $("#first-name-add-input");
     const lastNameInput = $("#last-name-add-input");
-    const phoneNumberInput = $("#phone-add-input");
 
     const phoneNumberPattern = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
 
@@ -21,9 +20,7 @@
         }
     });
 
-    addForm.submit(event => {
-        event.preventDefault();
-    });
+    addForm.submit(event => event.preventDefault());
 
     function addContactToTable() {
         if (!validateAddInputsText()) {
@@ -35,7 +32,7 @@
         const numberCell = $("<td class='number-cell'></td>");
         const lastNameCell = $("<td class='last-name-cell'></td>").text(lastNameInput.val());
         const firstNameCell = $("<td class='first-name-cell'></td>").text(firstNameInput.val());
-        const phoneNumberCell = $("<td class='phone-cell'></td>").text(phoneNumberInput.val());
+        const phoneNumberCell = $("<td class='phone-cell'></td>").text(addPhoneNumberInput.val());
 
         const deleteRowButton = $("<input class='delete-row-button button-hover-hand' type='button' name='delete-contact' value='Delete contact' title='Delete this row' />")
             .click(showDeleteDialog);
@@ -57,7 +54,7 @@
 
         firstNameInput.val("");
         lastNameInput.val("");
-        phoneNumberInput.val("");
+        addPhoneNumberInput.val("");
     }
 
     function showDeleteDialog(event) {
@@ -158,43 +155,43 @@
     }
 
     function validateAddInputsText() {
-        const namesInputs = $(".add-input-block");
+        const namesInputs = $(".add-input");
 
-        const areTextInputsIsValid = validateNamesInputs(namesInputs);
-        const isPhoneInputIsValid = validatePhoneInput(addPhoneNumberInput);
+        const areTextInputsValid = validateNamesInputs(namesInputs);
+        const isPhoneInputValid = validatePhoneInput(addPhoneNumberInput);
 
-        return areTextInputsIsValid && isPhoneInputIsValid;
+        return areTextInputsValid && isPhoneInputValid;
     }
 
     function validateEditInputsText() {
-        const namesInputs = $(".edit-input-block");
+        const namesInputs = $(".edit-input");
         const phoneInput = $("#phone-edit-input");
 
-        const areTextInputsIsValid = validateNamesInputs(namesInputs);
-        const isPhoneInputIsValid = validatePhoneInput(phoneInput);
+        const areTextInputsValid = validateNamesInputs(namesInputs);
+        const isPhoneInputValid = validatePhoneInput(phoneInput);
 
-        return areTextInputsIsValid && isPhoneInputIsValid;
+        return areTextInputsValid && isPhoneInputValid;
     }
 
     function validatePhoneInput(phoneNumberInput) {
         let isValidInput = true;
 
         const phoneText = phoneNumberInput.val();
-        const phoneErrorText = phoneNumberInput.next();
+        const phoneErrorTextDiv = phoneNumberInput.next();
 
-        const phoneNumberValidateText = getPhoneNumberValidationMessage(phoneText);
+        const phoneNumberValidationMessage = getPhoneNumberValidationMessage(phoneText);
 
-        if (phoneNumberValidateText.length !== 0) {
+        if (phoneNumberValidationMessage.length !== 0) {
             phoneNumberInput.addClass("input-invalid");
 
-            phoneErrorText.text(phoneNumberValidateText);
-            phoneErrorText.show();
+            phoneErrorTextDiv.text(phoneNumberValidationMessage);
+            phoneErrorTextDiv.show();
 
             isValidInput = false;
         } else {
             phoneNumberInput.removeClass("input-invalid");
 
-            phoneErrorText.hide();
+            phoneErrorTextDiv.hide();
         }
 
         return isValidInput;
@@ -205,7 +202,7 @@
 
         namesInputs.each((index, nameInput) => {
             const input = $(nameInput);
-            const errorText = input.next();
+            const errorTextDiv = input.next();
             const inputText = $(nameInput).val();
 
             const validateText = getValidationMessage(inputText);
@@ -213,20 +210,19 @@
             if (validateText.length !== 0) {
                 input.addClass("input-invalid");
 
-                errorText.text(validateText);
-                errorText.show();
+                errorTextDiv.text(validateText);
+                errorTextDiv.show();
 
                 areAllInputsValid = false;
             } else {
                 input.removeClass("input-invalid");
 
-                errorText.hide();
+                errorTextDiv.hide();
             }
         });
 
         return areAllInputsValid;
     }
-
 
     function getValidationMessage(text) {
         if (text.trim().length === 0) {
